@@ -1,27 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Fragment+Mono:ital,wght@0,400;0,700;0,900;1,400&family=Barlow:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap');
 @import "tailwindcss";
 
+@theme {
+  --font-sans: 'Fragment Mono', ui-sans-serif, system-ui, sans-serif;
+  --font-body: 'Barlow', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+
 :root {
-  font-family: monospace, Helvetica, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-  color: #000000;
-  background: #ffffff;
-  font-synthesis: none;
+  --lithos-bg: #ffffff;
+  --lithos-text: #000000;
+  --lithos-border: #000000;
+  --lithos-accent: #00FF00;
+  --lithos-surface: #ffffff;
+  --lithos-muted: rgba(0, 0, 0, 0.3);
+  --lithos-shadow: rgba(0, 0, 0, 1);
+
+  background-color: var(--lithos-bg);
+  color: var(--lithos-text);
+  color-scheme: light;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-html {
-  background: #ffffff;
+.obsidian,
+body.obsidian {
+  --lithos-bg: #000000;
+  --lithos-text: #ffffff;
+  --lithos-border: #ffffff;
+  --lithos-accent: #00FF00;
+  --lithos-surface: #000000;
+  --lithos-muted: rgba(255, 255, 255, 0.3);
+  --lithos-shadow: rgba(255, 255, 255, 1);
+  color-scheme: dark;
 }
 
 body {
   margin: 0;
-  background: #ffffff;
-  color: #000000;
+  min-height: 100vh;
+  background-color: var(--lithos-bg);
+  color: var(--lithos-text);
 }
 
-#root {
-  min-height: 100vh;
+@keyframes brutalist-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slide-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

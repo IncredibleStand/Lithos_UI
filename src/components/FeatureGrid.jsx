@@ -1,47 +1,74 @@
 const features = [
   {
     title: 'Structural Cards',
+    icon: '✦',
     description:
       'Every card is built to stay legible, rigid, and visually loud under pressure.',
   },
   {
     title: 'Brutal Buttons',
+    icon: '▲',
     description:
       'CTA styles that punch through the layout with hard borders and sharp shadow offsets.',
   },
   {
-    title: 'Responsive Composition',
+    title: 'Native Obsidian Mode',
+    icon: '◐',
     description:
-      'Layouts snap cleanly from mobile stacks to desktop rows without collapsing rhythm.',
+      'A complete dark-mode implementation with swappable CSS tokens for instant theme switching.',
   },
   {
-    title: 'Reusable Sections',
+    title: 'Staggered Motion Pack',
+    icon: '⬣',
     description:
-      'A full kit of sections designed to assemble landing pages without visual compromise.',
+      'Pre-built keyframes and easing curves for brutalist animation without external motion libraries.',
+  },
+  {
+    title: 'Responsive Rhythm',
+    icon: '■',
+    description:
+      'Layouts snap cleanly from mobile stacks to desktop rows without losing structural integrity.',
+  },
+  {
+    title: 'Reusable Blocks',
+    icon: '✱',
+    description:
+      'Eight modular sections designed to assemble landing pages with zero visual compromise.',
   },
 ]
 
 function FeatureGrid() {
   return (
-    <section id="features" className="bg-white py-24">
+    <section id="features" className="bg-(--lithos-surface) py-24">
       <div className="mx-auto max-w-6xl px-6">
-        <h2 className="mb-12 text-4xl font-black uppercase tracking-tighter leading-none text-black md:text-5xl">
-          No Fluff. Just Features.
+        <h2 className="text-4xl font-black uppercase tracking-tighter leading-none text-center text-(--lithos-text) md:text-5xl">
+          No Fluff. Just Features
         </h2>
 
-        <div className="flex flex-wrap justify-center">
+        <div className="mt-20 -m-4 flex flex-wrap justify-center">
           {features.map((feature) => (
             <article
               key={feature.title}
-              className="m-4 w-full max-w-sm border-4 border-black bg-white p-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all duration-150 ease-out hover:-translate-y-2 hover:bg-[#00FF00] hover:shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] active:translate-y-0 active:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
+              className="group relative overflow-hidden m-4 w-full max-w-sm border-4 border-(--lithos-border) bg-(--lithos-surface) p-6 shadow-[6px_6px_0px_0px_var(--lithos-shadow)] transition-all duration-150 ease-out hover:shadow-[10px_10px_0px_0px_var(--lithos-shadow)] active:shadow-[2px_2px_0px_0px_var(--lithos-shadow)] cursor-pointer"
             >
-              <div className="h-14 w-14 border-4 border-black bg-black" aria-hidden="true" />
-              <h3 className="mt-6 text-2xl font-black uppercase tracking-tighter leading-none text-black">
-                {feature.title}
-              </h3>
-              <p className="mt-4 text-base font-medium leading-none text-black">{feature.description}</p>
+              <div className="absolute inset-0 z-0 origin-top-left scale-0 bg-(--lithos-accent) transition-transform duration-300 ease-out group-hover:scale-100" aria-hidden="true" />
+              <div className="relative z-10 flex flex-col">
+                <div className="flex h-14 w-14 items-center justify-center border-4 border-(--lithos-border) bg-(--lithos-surface) group-hover:bg-(--lithos-text) text-3xl text-(--lithos-accent) group-hover:text-(--lithos-surface) transition-colors duration-300" aria-hidden="true">
+                  {feature.icon}
+                </div>
+                <h3 className="mt-6 text-2xl font-black uppercase tracking-tighter leading-none text-(--lithos-text) group-hover:text-black transition-colors duration-300">
+                  {feature.title}
+                </h3>
+                <p className="mt-4 text-base font-medium leading-none text-(--lithos-text) group-hover:text-black transition-colors duration-300">{feature.description}</p>
+              </div>
             </article>
           ))}
+        </div>
+
+        <div className="mt-12 flex justify-center">
+          <a href="#pricing" className="font-black uppercase tracking-tighter text-(--lithos-text) transition-colors hover:text-(--lithos-accent) cursor-pointer">
+            Explore the full 8-block library →
+          </a>
         </div>
       </div>
     </section>
