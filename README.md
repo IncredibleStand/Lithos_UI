@@ -26,6 +26,11 @@ CSS specificity wars ruin dynamic themes. Lithos UI utilizes a Javascript-inject
 
 Lithos UI is not an NPM black-box dependency. It is a **Code Ownership Kit**. You copy the raw blocks into your project so you retain absolute control over the markup.
 
+**Starting a new project?**
+Click the green **"Use this template"** button at the top of the repository to instantly generate a fresh React app with the global design tokens and Theme Engine pre-configured.
+
+**Adding to an existing project?**
+
 1. Ensure your project is running **React** and **Tailwind CSS v3+**.
 2. Copy the `index.css` global tokens into your main stylesheet.
 3. Drop the components from the `/components` folder into your standard architecture.
