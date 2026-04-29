@@ -49,7 +49,7 @@ function Navbar() {
         <div className="flex lg:hidden">
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="border-4 border-(--lithos-border) bg-(--lithos-accent) p-2 text-xl font-black uppercase leading-none text-(--lithos-text) shadow-[4px_4px_0px_0px_var(--lithos-shadow)] cursor-pointer"
+            className="border-4 border-(--lithos-border) bg-(--lithos-accent) p-2 text-xl font-black uppercase leading-none text-(--lithos-accent-text) shadow-[4px_4px_0px_0px_var(--lithos-shadow)] cursor-pointer"
           >
             {isMenuOpen ? 'CLOSE' : 'MENU'}
           </button>

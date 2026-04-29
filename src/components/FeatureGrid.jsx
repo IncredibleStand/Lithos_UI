@@ -53,7 +53,7 @@ function FeatureGrid() {
             >
               <div className="absolute inset-0 z-0 origin-top-left scale-0 bg-(--lithos-accent) transition-transform duration-300 ease-out group-hover:scale-100" aria-hidden="true" />
               <div className="relative z-10 flex flex-col">
-                <div className="flex h-14 w-14 items-center justify-center border-4 border-(--lithos-border) bg-(--lithos-surface) group-hover:bg-(--lithos-text) text-3xl text-(--lithos-accent) group-hover:text-(--lithos-surface) transition-colors duration-300" aria-hidden="true">
+                <div className="flex h-14 w-14 items-center justify-center border-4 border-(--lithos-border) bg-(--lithos-accent) text-3xl text-(--lithos-accent-text) group-hover:bg-(--lithos-text) group-hover:text-(--lithos-surface) transition-colors duration-300 z-10" aria-hidden="true">
                   {feature.icon}
                 </div>
                 <h3 className="mt-6 text-2xl font-black uppercase tracking-tighter leading-none text-(--lithos-text) group-hover:text-(--lithos-accent-text) transition-colors duration-300">

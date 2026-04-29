@@ -28,18 +28,18 @@ function Testimonials() {
           {testimonials.map((testimonial) => (
             <article
               key={testimonial.name}
-              className="m-4 flex w-full sm:w-[calc(50%-2rem)] lg:w-[calc(33.333%-2rem)] flex-col border-4 border-(--lithos-border) bg-(--lithos-surface) p-6 shadow-[6px_6px_0px_0px_var(--lithos-shadow)] transition-all duration-150 ease-out hover:shadow-[10px_10px_0px_0px_var(--lithos-shadow)] active:shadow-[2px_2px_0px_0px_var(--lithos-shadow)]"
+              className="m-4 flex w-full sm:w-[calc(50%-2rem)] lg:w-[calc(33.333%-2rem)] flex-col border-4 border-(--lithos-border) bg-(--lithos-accent) p-6 shadow-[6px_6px_0px_0px_var(--lithos-shadow)] transition-all duration-150 ease-out hover:shadow-[10px_10px_0px_0px_var(--lithos-shadow)] active:shadow-[2px_2px_0px_0px_var(--lithos-shadow)]"
             >
-              <p className="text-lg font-black uppercase tracking-tighter leading-none text-(--lithos-text)">★★★★★</p>
-              <p className="mt-4 text-2xl font-black uppercase tracking-tighter leading-none text-(--lithos-text)">
+              <p className="text-lg font-black uppercase tracking-tighter leading-none text-(--lithos-accent-text)">★★★★★</p>
+              <p className="mt-4 text-2xl font-black uppercase tracking-tighter leading-none text-(--lithos-accent-text)">
                 {testimonial.quote}
               </p>
 
               <div className="mt-8 flex items-center">
-                <div className="h-12 w-12 rounded-full border-4 border-(--lithos-border) bg-(--lithos-accent)" aria-hidden="true" />
+                <div className="h-12 w-12 rounded-full border-4 border-(--lithos-border) bg-(--lithos-surface)" aria-hidden="true" />
                 <div className="ml-4">
-                  <p className="font-black uppercase tracking-tighter leading-none text-(--lithos-text)">{testimonial.name}</p>
-                  <p className="mt-2 font-bold uppercase tracking-tighter leading-none text-(--lithos-text)">{testimonial.title}</p>
+                  <p className="font-black uppercase tracking-tighter leading-none text-(--lithos-accent-text)">{testimonial.name}</p>
+                  <p className="mt-2 font-bold uppercase tracking-tighter leading-none text-(--lithos-accent-text)">{testimonial.title}</p>
                 </div>
               </div>
             </article>

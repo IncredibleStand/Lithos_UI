@@ -53,13 +53,13 @@ function FAQ() {
                   className={
                     isOpen
                       ? 'flex w-full items-center justify-between bg-(--lithos-accent) px-6 py-6 text-left shadow-[6px_6px_0px_0px_var(--lithos-shadow)] transition-all duration-150 ease-out cursor-pointer'
-                      : 'flex w-full items-center justify-between bg-(--lithos-surface) px-6 py-6 text-left shadow-[6px_6px_0px_0px_var(--lithos-shadow)] transition-all duration-150 ease-out hover:shadow-[10px_10px_0px_0px_var(--lithos-shadow)] active:shadow-[2px_2px_0px_0px_var(--lithos-shadow)] cursor-pointer'
+                      : 'group flex w-full items-center justify-between bg-(--lithos-surface) hover:bg-(--lithos-accent) px-6 py-6 text-left shadow-[6px_6px_0px_0px_var(--lithos-shadow)] transition-all duration-150 ease-out hover:shadow-[10px_10px_0px_0px_var(--lithos-shadow)] active:shadow-[2px_2px_0px_0px_var(--lithos-shadow)] cursor-pointer'
                   }
                 >
-                  <span className={`pr-6 text-2xl font-black uppercase tracking-tighter leading-none md:text-3xl ${isOpen ? 'text-(--lithos-accent-text)' : 'text-(--lithos-text)'}`}>
+                  <span className={`pr-6 text-2xl font-black uppercase tracking-tighter leading-none md:text-3xl ${isOpen ? 'text-(--lithos-accent-text)' : 'text-(--lithos-text) group-hover:text-(--lithos-accent-text) transition-colors'}`}>
                     {faq.question}
                   </span>
-                  <span className={`text-5xl font-black uppercase tracking-tighter leading-none ${isOpen ? 'text-(--lithos-accent-text)' : 'text-(--lithos-text)'}`} aria-hidden="true">
+                  <span className={`text-5xl font-black uppercase tracking-tighter leading-none ${isOpen ? 'text-(--lithos-accent-text)' : 'text-(--lithos-text) group-hover:text-(--lithos-accent-text) transition-colors'}`} aria-hidden="true">
                     {isOpen ? '-' : '+'}
                   </span>
                 </button>

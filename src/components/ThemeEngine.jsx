@@ -36,6 +36,10 @@ function ThemeEngine() {
         --lithos-accent: ${accent} !important;
         --lithos-accent-text: ${text} !important;
       }
+      ::selection {
+        background-color: var(--lithos-accent) !important;
+        color: var(--lithos-accent-text) !important;
+      }
     `
   }
 
@@ -112,11 +116,7 @@ function ThemeEngine() {
                 }}
               />
               <span
-                className={`mt-2 text-xs font-black uppercase tracking-tighter ${
-                  !themes.some((t) => t.hex === activeTheme)
-                    ? 'text-black'
-                    : 'text-(--lithos-text)'
-                }`}
+                className={`mt-2 text-xs font-black uppercase tracking-tighter ${!themes.some((t) => t.hex === activeTheme) ? 'text-(--lithos-accent-text)' : 'text-(--lithos-text)'}`}
               >
                 Custom
               </span>
