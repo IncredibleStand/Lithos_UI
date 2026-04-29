@@ -77,7 +77,7 @@ function ThemeEngine() {
                 onClick={() => handleThemeChange(theme.hex)}
                 aria-label={`Activate ${theme.name} theme`}
                 title={theme.name}
-                className={`m-2 h-16 w-[calc(50%-1rem)] sm:m-4 sm:h-24 sm:w-24 shrink-0 border-4 border-(--lithos-border) flex items-center justify-center transition-shadow duration-150 ease-out cursor-pointer ${isActive ? 'shadow-[2px_2px_0px_0px_var(--lithos-shadow)]' : 'shadow-[6px_6px_0px_0px_var(--lithos-shadow)] hover:shadow-[10px_10px_0px_0px_var(--lithos-shadow)] active:shadow-[2px_2px_0px_0px_var(--lithos-shadow)]'}`}
+                className={`m-2 h-16 w-[calc(50%-1rem)] sm:m-4 sm:h-24 sm:w-24 shrink-0 border-4 border-(--lithos-border) flex items-center justify-center transition-shadow duration-150 ease-out cursor-pointer ${isActive ? 'shadow-[2px_2px_0px_0px_var(--lithos-shadow)]' : 'shadow-[4px_4px_0px_0px_var(--lithos-shadow)] hover:shadow-[6px_6px_0px_0px_var(--lithos-shadow)] active:shadow-[2px_2px_0px_0px_var(--lithos-shadow)]'}`}
                 style={{
                   backgroundColor: theme.hex,
                 }}
