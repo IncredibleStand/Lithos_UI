@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 const links = [
   { label: 'Features', href: '#features' },
   { label: 'Pricing', href: '#pricing' },
@@ -6,16 +8,18 @@ const links = [
 ]
 
 function Navbar() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+
   return (
     <header className="fixed top-0 z-50 w-full border-b-4 border-(--lithos-border) bg-(--lithos-surface)">
-      <div className="mx-auto flex max-w-7xl items-center px-6 py-5">
-        <div className="flex w-1/3 justify-start">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
+        <div className="flex items-center justify-start lg:w-1/3">
           <a href="#top" className="font-black text-2xl uppercase tracking-tighter leading-none text-(--lithos-text) cursor-pointer">
             LITHOS UI
           </a>
         </div>
 
-        <nav className="hidden w-1/3 items-center justify-center md:flex">
+        <nav className="hidden items-center justify-center lg:flex lg:w-1/3">
           {links.map((link, index) => (
             <a
               key={link.label}
@@ -31,15 +35,46 @@ function Navbar() {
           ))}
         </nav>
 
-        <div className="flex w-1/3 items-center justify-end">
+        <div className="hidden items-center justify-end lg:flex lg:w-1/3">
           <a
             href="#pricing"
-            className="border-4 border-(--lithos-border) bg-(--lithos-accent) px-5 py-3 font-black uppercase tracking-tighter leading-none text-black shadow-[6px_6px_0px_0px_var(--lithos-shadow)] transition-shadow duration-150 ease-out hover:shadow-[10px_10px_0px_0px_var(--lithos-shadow)] active:shadow-[2px_2px_0px_0px_var(--lithos-shadow)] cursor-pointer"
+            className="border-4 border-(--lithos-border) bg-(--lithos-accent) px-5 py-3 font-black uppercase tracking-tighter leading-none text-(--lithos-accent-text) shadow-[6px_6px_0px_0px_var(--lithos-shadow)] transition-shadow duration-150 ease-out hover:shadow-[8px_8px_0px_0px_var(--lithos-shadow)] active:shadow-[2px_2px_0px_0px_var(--lithos-shadow)] cursor-pointer"
           >
             Get the Kit
           </a>
         </div>
+
+        <div className="flex lg:hidden">
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="border-4 border-(--lithos-border) bg-(--lithos-accent) p-2 text-xl font-black uppercase leading-none text-(--lithos-text) shadow-[4px_4px_0px_0px_var(--lithos-shadow)] cursor-pointer"
+          >
+            {isMenuOpen ? 'CLOSE' : 'MENU'}
+          </button>
+        </div>
       </div>
+
+      {isMenuOpen && (
+        <nav className="flex flex-col border-t-4 border-(--lithos-border) bg-(--lithos-surface) p-6 shadow-[0px_8px_0px_0px_var(--lithos-shadow)] lg:hidden">
+          {links.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              onClick={() => setIsMenuOpen(false)}
+              className="mb-6 text-3xl font-black uppercase tracking-tighter text-(--lithos-text) cursor-pointer"
+            >
+              {link.label}
+            </a>
+          ))}
+          <a
+            href="#pricing"
+            onClick={() => setIsMenuOpen(false)}
+            className="mt-4 border-4 border-(--lithos-border) bg-(--lithos-accent) p-4 text-center text-xl font-black uppercase text-(--lithos-accent-text) shadow-[4px_4px_0px_0px_var(--lithos-shadow)] cursor-pointer"
+          >
+            Get the Kit
+          </a>
+        </nav>
+      )}
     </header>
   )
 }

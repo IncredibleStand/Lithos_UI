@@ -59,13 +59,13 @@ function Pricing() {
                 key={tier.key}
                 className={
                   highlighted
-                    ? 'm-4 flex flex-1 flex-col h-full w-full max-w-lg border-4 border-(--lithos-border) bg-(--lithos-accent) p-8 shadow-[10px_10px_0px_0px_var(--lithos-shadow)] transition-shadow duration-150 ease-out hover:shadow-[14px_14px_0px_0px_var(--lithos-shadow)] active:shadow-[4px_4px_0px_0px_var(--lithos-shadow)] motion-safe:animate-[brutalist-pop_400ms_cubic-bezier(0.175,0.885,0.32,1.275)] cursor-pointer'
-                    : 'm-4 flex flex-1 flex-col h-full w-full max-w-lg border-4 border-(--lithos-border) bg-(--lithos-surface) p-8 shadow-[6px_6px_0px_0px_var(--lithos-shadow)] transition-shadow duration-150 ease-out hover:shadow-[10px_10px_0px_0px_var(--lithos-shadow)] active:shadow-[2px_2px_0px_0px_var(--lithos-shadow)] motion-safe:animate-[slide-up_400ms_cubic-bezier(0.175,0.885,0.32,1.275)] cursor-pointer'
+                    ? 'm-4 flex w-[calc(100%-2rem)] lg:flex-1 flex-col h-full border-4 border-(--lithos-border) bg-(--lithos-accent) p-6 sm:p-8 shadow-[10px_10px_0px_0px_var(--lithos-shadow)] transition-shadow duration-150 ease-out hover:shadow-[14px_14px_0px_0px_var(--lithos-shadow)] active:shadow-[4px_4px_0px_0px_var(--lithos-shadow)] motion-safe:animate-[brutalist-pop_400ms_cubic-bezier(0.175,0.885,0.32,1.275)] cursor-pointer'
+                    : 'm-4 flex w-[calc(100%-2rem)] lg:flex-1 flex-col h-full border-4 border-(--lithos-border) bg-(--lithos-surface) p-6 sm:p-8 shadow-[6px_6px_0px_0px_var(--lithos-shadow)] transition-shadow duration-150 ease-out hover:shadow-[10px_10px_0px_0px_var(--lithos-shadow)] active:shadow-[2px_2px_0px_0px_var(--lithos-shadow)] motion-safe:animate-[slide-up_400ms_cubic-bezier(0.175,0.885,0.32,1.275)] cursor-pointer'
                 }
               >
-                <h3 className={`text-3xl font-black uppercase tracking-tighter leading-none ${highlighted ? 'text-black' : 'text-(--lithos-text)'}`}>{tier.title}</h3>
-                <p className={`mt-4 text-5xl font-black uppercase tracking-tighter leading-none ${highlighted ? 'text-black' : 'text-(--lithos-text)'}`}>{tier.price}</p>
-                <p className={`mt-4 text-base font-medium leading-snug ${highlighted ? 'text-black' : 'text-(--lithos-text)'}`}>{tier.goal}</p>
+                <h3 className={`text-3xl font-black uppercase tracking-tighter leading-none ${highlighted ? 'text-(--lithos-accent-text)' : 'text-(--lithos-text)'}`}>{tier.title}</h3>
+                <p className={`mt-4 text-4xl sm:text-5xl font-black uppercase tracking-tighter leading-none ${highlighted ? 'text-(--lithos-accent-text)' : 'text-(--lithos-text)'}`}>{tier.price}</p>
+                <p className={`mt-4 text-base font-medium leading-snug ${highlighted ? 'text-(--lithos-accent-text)' : 'text-(--lithos-text)'}`}>{tier.goal}</p>
 
                 <div className="mt-8">
                   <ul>
@@ -74,7 +74,7 @@ function Pricing() {
                         key={`${tier.key}-f-${i}`}
                         className={
                           'leading-snug font-black uppercase tracking-tighter' +
-                          (feature.included ? (highlighted ? ' text-black' : ' text-(--lithos-text)') : (highlighted ? ' line-through opacity-30 text-black' : ' line-through opacity-30 text-(--lithos-text)')) +
+                          (feature.included ? (highlighted ? ' text-(--lithos-accent-text)' : ' text-(--lithos-text)') : (highlighted ? ' line-through opacity-30 text-(--lithos-accent-text)' : ' line-through opacity-30 text-(--lithos-text)')) +
                           (i < tier.features.length - 1 ? ' mb-3' : '')
                         }
                       >
@@ -90,8 +90,8 @@ function Pricing() {
                     href="#top"
                     className={
                       highlighted
-                        ? 'inline-flex border-4 border-black bg-black px-6 py-4 font-black uppercase tracking-tighter leading-none text-(--lithos-accent) transition-all duration-150 ease-out hover:bg-zinc-900 cursor-pointer'
-                        : 'inline-flex border-4 border-(--lithos-border) bg-(--lithos-surface) px-6 py-4 font-black uppercase tracking-tighter leading-none text-(--lithos-text) shadow-[6px_6px_0px_0px_var(--lithos-shadow)] transition-shadow duration-150 ease-out hover:shadow-[10px_10px_0px_0px_var(--lithos-shadow)] active:shadow-[2px_2px_0px_0px_var(--lithos-shadow)] cursor-pointer'
+                        ? 'inline-flex border-4 border-(--lithos-accent-text) bg-(--lithos-accent-text) px-4 py-3 sm:px-6 sm:py-4 font-black uppercase tracking-tighter leading-none text-(--lithos-accent) transition-opacity duration-150 ease-out hover:opacity-80 cursor-pointer'
+                        : 'inline-flex border-4 border-(--lithos-border) bg-(--lithos-surface) px-4 py-3 sm:px-6 sm:py-4 font-black uppercase tracking-tighter leading-none text-(--lithos-text) shadow-[6px_6px_0px_0px_var(--lithos-shadow)] transition-shadow duration-150 ease-out hover:shadow-[10px_10px_0px_0px_var(--lithos-shadow)] active:shadow-[2px_2px_0px_0px_var(--lithos-shadow)] cursor-pointer'
                     }
                   >
                     {tier.cta}

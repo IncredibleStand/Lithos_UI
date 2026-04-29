@@ -2,7 +2,7 @@ function Hero() {
   return (
     <section id="top" className="bg-(--lithos-surface) py-24">
       <div className="mx-auto max-w-6xl px-6 text-center">
-        <h1 className="text-balance text-5xl font-black uppercase tracking-tighter leading-none md:text-7xl">
+        <h1 className="text-balance text-5xl font-black uppercase tracking-tighter leading-none md:text-7xl lg:text-8xl">
           BUILD FRONTENDS THAT REFUSE TO BREAK
         </h1>
 
@@ -14,7 +14,7 @@ function Hero() {
         <div className="mt-10 flex flex-col items-center justify-center md:flex-row">
           <a
             href="#pricing"
-            className="border-4 border-(--lithos-border) bg-(--lithos-accent) px-8 py-4 font-black uppercase tracking-tighter leading-none text-black shadow-[6px_6px_0px_0px_var(--lithos-shadow)] transition-shadow duration-150 ease-out hover:shadow-[10px_10px_0px_0px_var(--lithos-shadow)] active:shadow-[2px_2px_0px_0px_var(--lithos-shadow)] cursor-pointer"
+            className="border-4 border-(--lithos-border) bg-(--lithos-accent) px-8 py-4 font-black uppercase tracking-tighter leading-none text-(--lithos-accent-text) shadow-[6px_6px_0px_0px_var(--lithos-shadow)] transition-shadow duration-150 ease-out hover:shadow-[10px_10px_0px_0px_var(--lithos-shadow)] active:shadow-[2px_2px_0px_0px_var(--lithos-shadow)] cursor-pointer"
           >
             Start Building
           </a>
@@ -28,89 +28,89 @@ function Hero() {
         </div>
 
         {/* Monolithic Terminal Showcase */}
-        <div className="mt-20 mx-auto max-w-4xl flex flex-col border-8 border-(--lithos-border) shadow-[8px_8px_0px_0px_var(--lithos-accent)] text-left">
+        <div className="mt-20 mx-auto w-full max-w-full flex flex-col border-4 sm:border-8 border-(--lithos-border) shadow-[8px_8px_0px_0px_var(--lithos-accent)] text-left">
           {/* Terminal Header */}
-          <div className="flex items-center justify-start border-b-8 border-(--lithos-border) bg-(--lithos-surface) p-4">
-            <div className="mr-3 h-5 w-5 rounded-full border-4 border-(--lithos-border) bg-(--lithos-text)" aria-hidden="true" />
-            <div className="mr-3 h-5 w-5 rounded-full border-4 border-(--lithos-border) bg-(--lithos-text)" aria-hidden="true" />
-            <div className="h-5 w-5 rounded-full border-4 border-(--lithos-border) bg-(--lithos-text)" aria-hidden="true" />
+          <div className="flex items-center justify-start border-b-4 sm:border-b-8 border-(--lithos-border) bg-(--lithos-text) p-2 sm:p-4">
+            <div className="mr-3 h-5 w-5 rounded-full border-4 border-(--lithos-surface) bg-(--lithos-surface)" aria-hidden="true" />
+            <div className="mr-3 h-5 w-5 rounded-full border-4 border-(--lithos-surface) bg-(--lithos-surface)" aria-hidden="true" />
+            <div className="h-5 w-5 rounded-full border-4 border-(--lithos-surface) bg-(--lithos-surface)" aria-hidden="true" />
           </div>
 
           {/* Terminal Body */}
-          <div className="bg-(--lithos-text) p-8 overflow-x-auto">
-            <pre className="text-sm md:text-base font-mono leading-relaxed text-(--lithos-surface)">
-              <span className="text-(--lithos-accent)">import</span>
-              <span className="text-(--lithos-surface)"> {' {Hero, FeatureGrid, Pricing, FAQ} '}</span>
-              <span className="text-(--lithos-accent)">from</span>
-              <span className="text-(--lithos-accent)"> 'lithos-ui'</span>
-              <span className="text-(--lithos-surface)">{`\n\n`}</span>
+          <div className="bg-(--lithos-accent) p-4 sm:p-8 overflow-x-auto max-w-full">
+            <pre className="max-w-full overflow-x-auto text-[10px] min-[375px]:text-xs sm:text-sm md:text-base font-mono leading-relaxed text-(--lithos-accent-text)">
+              <span className="text-(--lithos-accent-text) font-black">import</span>
+              <span className="text-(--lithos-accent-text) opacity-70"> {' {Hero, FeatureGrid, Pricing, FAQ} '}</span>
+              <span className="text-(--lithos-accent-text) font-black">from</span>
+              <span className="text-(--lithos-accent-text) font-black"> 'lithos-ui'</span>
+              <span className="text-(--lithos-accent-text) opacity-70">{`\n\n`}</span>
 
-              <span className="text-(--lithos-accent)">export default</span>
-              <span className="text-(--lithos-surface)"> </span>
-              <span className="text-(--lithos-accent)">function</span>
-              <span className="text-(--lithos-surface)"> LandingPage() {'\n'}</span>
+              <span className="text-(--lithos-accent-text) font-black">export default</span>
+              <span className="text-(--lithos-accent-text) opacity-70"> </span>
+              <span className="text-(--lithos-accent-text) font-black">function</span>
+              <span className="text-(--lithos-accent-text) opacity-70"> LandingPage() {'\n'}</span>
 
-              <span className="text-(--lithos-surface)">  </span>
-              <span className="text-(--lithos-accent)">return</span>
-              <span className="text-(--lithos-surface)"> ({'(\n    '}</span>
-              <span className="text-(--lithos-accent)">&lt;main</span>
-              <span className="text-(--lithos-accent)"> className</span>
-              <span className="text-(--lithos-surface)">=</span>
-              <span className="text-(--lithos-accent)">"theme-obsidian"</span>
-              <span className="text-(--lithos-accent)">&gt;</span>
-              <span className="text-(--lithos-surface)">{`\n      `}</span>
+              <span className="text-(--lithos-accent-text) opacity-70">  </span>
+              <span className="text-(--lithos-accent-text) font-black">return</span>
+              <span className="text-(--lithos-accent-text) opacity-70"> ({'(\n    '}</span>
+              <span className="text-(--lithos-accent-text) font-black">&lt;main</span>
+              <span className="text-(--lithos-accent-text) font-black"> className</span>
+              <span className="text-(--lithos-accent-text) opacity-70">=</span>
+              <span className="text-(--lithos-accent-text) font-black">"theme-obsidian"</span>
+              <span className="text-(--lithos-accent-text) font-black">&gt;</span>
+              <span className="text-(--lithos-accent-text) opacity-70">{`\n      `}</span>
 
-              <span className="text-(--lithos-accent)">&lt;Hero</span>
-              <span className="text-(--lithos-surface)">{`\n        `}</span>
-              <span className="text-(--lithos-accent)">heading</span>
-              <span className="text-(--lithos-surface)">=</span>
-              <span className="text-(--lithos-accent)">"SHIP FASTER"</span>
-              <span className="text-(--lithos-surface)">{`\n        `}</span>
-              <span className="text-(--lithos-accent)">motion</span>
-              <span className="text-(--lithos-surface)">=</span>
-              <span className="text-(--lithos-accent)">"spring"</span>
-              <span className="text-(--lithos-surface)">{`\n      `}</span>
-              <span className="text-(--lithos-accent)">/&gt;</span>
-              <span className="text-(--lithos-surface)">{`\n      `}</span>
+              <span className="text-(--lithos-accent-text) font-black">&lt;Hero</span>
+              <span className="text-(--lithos-accent-text) opacity-70">{`\n        `}</span>
+              <span className="text-(--lithos-accent-text) font-black">heading</span>
+              <span className="text-(--lithos-accent-text) opacity-70">=</span>
+              <span className="text-(--lithos-accent-text) font-black">"SHIP FASTER"</span>
+              <span className="text-(--lithos-accent-text) opacity-70">{`\n        `}</span>
+              <span className="text-(--lithos-accent-text) font-black">motion</span>
+              <span className="text-(--lithos-accent-text) opacity-70">=</span>
+              <span className="text-(--lithos-accent-text) font-black">"spring"</span>
+              <span className="text-(--lithos-accent-text) opacity-70">{`\n      `}</span>
+              <span className="text-(--lithos-accent-text) font-black">/&gt;</span>
+              <span className="text-(--lithos-accent-text) opacity-70">{`\n      `}</span>
 
-              <span className="text-(--lithos-accent)">&lt;FeatureGrid</span>
-              <span className="text-(--lithos-surface)">{`\n        `}</span>
-              <span className="text-(--lithos-accent)">columns</span>
-              <span className="text-(--lithos-surface)">=</span>
-              <span className="text-(--lithos-accent)">{'{3}'}</span>
-              <span className="text-(--lithos-surface)">{`\n        `}</span>
-              <span className="text-(--lithos-accent)">icons</span>
-              <span className="text-(--lithos-surface)">=</span>
-              <span className="text-(--lithos-accent)">"heavy-glyphs"</span>
-              <span className="text-(--lithos-surface)">{`\n      `}</span>
-              <span className="text-(--lithos-accent)">/&gt;</span>
-              <span className="text-(--lithos-surface)">{`\n      `}</span>
+              <span className="text-(--lithos-accent-text) font-black">&lt;FeatureGrid</span>
+              <span className="text-(--lithos-accent-text) opacity-70">{`\n        `}</span>
+              <span className="text-(--lithos-accent-text) font-black">columns</span>
+              <span className="text-(--lithos-accent-text) opacity-70">=</span>
+              <span className="text-(--lithos-accent-text) font-black">{'{3}'}</span>
+              <span className="text-(--lithos-accent-text) opacity-70">{`\n        `}</span>
+              <span className="text-(--lithos-accent-text) font-black">icons</span>
+              <span className="text-(--lithos-accent-text) opacity-70">=</span>
+              <span className="text-(--lithos-accent-text) font-black">"heavy-glyphs"</span>
+              <span className="text-(--lithos-accent-text) opacity-70">{`\n      `}</span>
+              <span className="text-(--lithos-accent-text) font-black">/&gt;</span>
+              <span className="text-(--lithos-accent-text) opacity-70">{`\n      `}</span>
 
-              <span className="text-(--lithos-accent)">&lt;Pricing</span>
-              <span className="text-(--lithos-surface)">{`\n        `}</span>
-              <span className="text-(--lithos-accent)">tier</span>
-              <span className="text-(--lithos-surface)">=</span>
-              <span className="text-(--lithos-accent)">"pro"</span>
-              <span className="text-(--lithos-surface)">{`\n        `}</span>
-              <span className="text-(--lithos-accent)">highlight</span>
-              <span className="text-(--lithos-surface)">=</span>
-              <span className="text-(--lithos-accent)">"accent"</span>
-              <span className="text-(--lithos-surface)">{`\n      `}</span>
-              <span className="text-(--lithos-accent)">/&gt;</span>
-              <span className="text-(--lithos-surface)">{`\n      `}</span>
+              <span className="text-(--lithos-accent-text) font-black">&lt;Pricing</span>
+              <span className="text-(--lithos-accent-text) opacity-70">{`\n        `}</span>
+              <span className="text-(--lithos-accent-text) font-black">tier</span>
+              <span className="text-(--lithos-accent-text) opacity-70">=</span>
+              <span className="text-(--lithos-accent-text) font-black">"pro"</span>
+              <span className="text-(--lithos-accent-text) opacity-70">{`\n        `}</span>
+              <span className="text-(--lithos-accent-text) font-black">highlight</span>
+              <span className="text-(--lithos-accent-text) opacity-70">=</span>
+              <span className="text-(--lithos-accent-text) font-black">"accent"</span>
+              <span className="text-(--lithos-accent-text) opacity-70">{`\n      `}</span>
+              <span className="text-(--lithos-accent-text) font-black">/&gt;</span>
+              <span className="text-(--lithos-accent-text) opacity-70">{`\n      `}</span>
 
-              <span className="text-(--lithos-accent)">&lt;FAQ</span>
-              <span className="text-(--lithos-surface)">{`\n        `}</span>
-              <span className="text-(--lithos-accent)">mode</span>
-              <span className="text-(--lithos-surface)">=</span>
-              <span className="text-(--lithos-accent)">"single-active"</span>
-              <span className="text-(--lithos-surface)">{`\n      `}</span>
-              <span className="text-(--lithos-accent)">/&gt;</span>
-              <span className="text-(--lithos-surface)">{`\n    `}</span>
-              <span className="text-(--lithos-accent)">&lt;/main&gt;</span>
-              <span className="text-(--lithos-surface)">{`\n  `}</span>
-              <span className="text-(--lithos-accent)">)</span>
-              <span className="text-(--lithos-surface)">{`\n}`}</span>
+              <span className="text-(--lithos-accent-text) font-black">&lt;FAQ</span>
+              <span className="text-(--lithos-accent-text) opacity-70">{`\n        `}</span>
+              <span className="text-(--lithos-accent-text) font-black">mode</span>
+              <span className="text-(--lithos-accent-text) opacity-70">=</span>
+              <span className="text-(--lithos-accent-text) font-black">"single-active"</span>
+              <span className="text-(--lithos-accent-text) opacity-70">{`\n      `}</span>
+              <span className="text-(--lithos-accent-text) font-black">/&gt;</span>
+              <span className="text-(--lithos-accent-text) opacity-70">{`\n    `}</span>
+              <span className="text-(--lithos-accent-text) font-black">&lt;/main&gt;</span>
+              <span className="text-(--lithos-accent-text) opacity-70">{`\n  `}</span>
+              <span className="text-(--lithos-accent-text) font-black">)</span>
+              <span className="text-(--lithos-accent-text) opacity-70">{`\n}`}</span>
             </pre>
           </div>
         </div>

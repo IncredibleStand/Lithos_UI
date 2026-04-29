@@ -28,7 +28,7 @@ function Testimonials() {
           {testimonials.map((testimonial) => (
             <article
               key={testimonial.name}
-              className="m-4 flex w-full max-w-md flex-col border-4 border-(--lithos-border) bg-(--lithos-surface) p-6 shadow-[6px_6px_0px_0px_var(--lithos-shadow)] transition-all duration-150 ease-out hover:shadow-[10px_10px_0px_0px_var(--lithos-shadow)] active:shadow-[2px_2px_0px_0px_var(--lithos-shadow)]"
+              className="m-4 flex w-full sm:w-[calc(50%-2rem)] lg:w-[calc(33.333%-2rem)] flex-col border-4 border-(--lithos-border) bg-(--lithos-surface) p-6 shadow-[6px_6px_0px_0px_var(--lithos-shadow)] transition-all duration-150 ease-out hover:shadow-[10px_10px_0px_0px_var(--lithos-shadow)] active:shadow-[2px_2px_0px_0px_var(--lithos-shadow)]"
             >
               <p className="text-lg font-black uppercase tracking-tighter leading-none text-(--lithos-text)">★★★★★</p>
               <p className="mt-4 text-2xl font-black uppercase tracking-tighter leading-none text-(--lithos-text)">

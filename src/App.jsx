@@ -16,7 +16,7 @@ function App() {
   }
 
   return (
-    <div className={`min-h-screen bg-(--lithos-bg) text-(--lithos-text) ${isDarkMode ? 'dark obsidian' : ''}`}>
+    <div className={`min-h-screen overflow-x-hidden bg-(--lithos-bg) text-(--lithos-text) ${isDarkMode ? 'dark obsidian' : ''}`}>
       <Navbar />
       <main className="pt-24">
         <Hero />
