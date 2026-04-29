@@ -25,14 +25,14 @@ function Footer({ isDarkMode, onToggleObsidian }) {
           <button
             type="button"
             onClick={onToggleObsidian}
-            className="mt-4 text-left text-2xl font-black uppercase tracking-tighter leading-none transition-colors duration-150 ease-out hover:bg-(--lithos-text) hover:text-(--lithos-accent) cursor-pointer md:text-4xl text-(--lithos-accent-text) px-2 py-1 -ml-2"
+            className="mt-4 text-left text-2xl font-black uppercase tracking-tighter leading-none transition-colors duration-150 ease-out cursor-pointer md:text-4xl text-(--lithos-accent-text) px-2 py-1 -ml-2"
           >
             {isDarkMode ? 'Light Mode' : 'Obsidian Mode'}
           </button>
         </div>
       </div>
 
-      <div className="mx-auto mt-24 max-w-7xl flex w-full justify-start">
+      <div className="mx-auto max-w-7xl flex w-full justify-start">
         <p className="text-sm font-bold uppercase tracking-tighter leading-none text-(--lithos-accent-text)">
           Copyright {new Date().getFullYear()} Lithos UI. All rights reserved.
         </p>
