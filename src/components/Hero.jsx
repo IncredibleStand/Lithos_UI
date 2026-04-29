@@ -1,4 +1,19 @@
+import { useToast } from './Toast'
+
 function Hero() {
+  // const { addToast } = useToast();
+
+  const handleTestToast = () => {
+    const types = ['success', 'error', 'warning', 'info', 'default'];
+    const randomType = types[Math.floor(Math.random() * types.length)];
+
+    addToast({
+      title: 'System Alert',
+      message: 'This is a brutalist toast notification with zero-gap and YIQ contrast.',
+      type: randomType,
+    });
+  };
+
   return (
     <section id="top" className="bg-(--lithos-surface) py-24">
       <div className="mx-auto max-w-6xl px-6 text-center">
@@ -11,12 +26,12 @@ function Hero() {
           structural integrity.
         </p>
 
-        <div className="mt-10 flex flex-col items-center justify-center md:flex-row">
+        <div className="mt-10 flex flex-col items-center justify-center md:flex-row flex-wrap">
           <a
             href="https://github.com/IncredibleStand/Lithos_UI#readme"
             target="_blank"
             rel="noopener noreferrer"
-            className="border-4 border-(--lithos-border) bg-(--lithos-accent) px-8 py-4 font-black uppercase tracking-tighter leading-none text-(--lithos-accent-text) shadow-[6px_6px_0px_0px_var(--lithos-shadow)] transition-shadow duration-150 ease-out hover:shadow-[8px_8px_0px_0px_var(--lithos-shadow)] active:shadow-[2px_2px_0px_0px_var(--lithos-shadow)] cursor-pointer"
+            className="border-4 border-(--lithos-border) bg-(--lithos-accent) px-8 py-4 font-black uppercase tracking-tighter leading-none text-(--lithos-accent-text) shadow-[6px_6px_0px_0px_var(--lithos-shadow)] transition-shadow duration-150 ease-out hover:shadow-[8px_8px_0px_0px_var(--lithos-shadow)] active:shadow-[2px_2px_0px_0px_var(--lithos-shadow)] cursor-pointer mb-4 md:mb-0 md:mr-6"
           >
             Documentation
           </a>
@@ -25,10 +40,17 @@ function Hero() {
             href="https://github.com/IncredibleStand/Lithos_UI"
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-6 border-4 border-(--lithos-border) bg-(--lithos-surface) px-8 py-4 font-black uppercase tracking-tighter leading-none text-(--lithos-text) shadow-[6px_6px_0px_0px_var(--lithos-shadow)] transition-shadow duration-150 ease-out hover:shadow-[8px_8px_0px_0px_var(--lithos-shadow)] active:shadow-[2px_2px_0px_0px_var(--lithos-shadow)] md:mt-0 md:ml-6 cursor-pointer"
+            className="border-4 border-(--lithos-border) bg-(--lithos-surface) px-8 py-4 font-black uppercase tracking-tighter leading-none text-(--lithos-text) shadow-[6px_6px_0px_0px_var(--lithos-shadow)] transition-shadow duration-150 ease-out hover:shadow-[8px_8px_0px_0px_var(--lithos-shadow)] active:shadow-[2px_2px_0px_0px_var(--lithos-shadow)] cursor-pointer mb-4 md:mb-0 md:mr-6"
           >
             View on GitHub
           </a>
+          {/* 
+          <button
+            onClick={handleTestToast}
+            className="border-4 border-(--lithos-border) bg-black px-8 py-4 font-black uppercase tracking-tighter leading-none text-white shadow-[6px_6px_0px_0px_var(--lithos-shadow)] transition-shadow duration-150 ease-out hover:shadow-[8px_8px_0px_0px_var(--lithos-shadow)] active:shadow-[2px_2px_0px_0px_var(--lithos-shadow)] cursor-pointer mb-4 md:mb-0"
+          >
+            Test Toast
+          </button> */}
         </div>
 
         {/* Monolithic Terminal Showcase */}
