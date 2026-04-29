@@ -40,23 +40,22 @@ function Hero() {
               <div className="mr-3 h-5 w-5 border-4 border-(--lithos-surface) bg-(--lithos-surface)" aria-hidden="true" />
               <div className="h-5 w-5 border-4 border-(--lithos-surface) bg-(--lithos-surface)" aria-hidden="true" />
             </div>
-            <div className="font-mono text-sm sm:text-base font-black text-(--lithos-surface) uppercase tracking-tighter">App.jsx</div>
           </div>
 
           {/* Terminal Body */}
           <div className="bg-(--lithos-accent) p-4 sm:p-8 overflow-x-auto max-w-full">
             <pre className="max-w-full overflow-x-auto text-[10px] min-[375px]:text-xs sm:text-sm md:text-base font-mono leading-relaxed text-(--lithos-accent-text)">
               <span className="bg-(--lithos-accent-text) text-(--lithos-accent) px-1 mx-1 font-black">import</span>
-              <span className="text-(--lithos-accent-text) font-bold"> {' {Hero, FeatureGrid, Pricing, FAQ} '}</span>
+              <span className="text-(--lithos-accent-text) font-bold"> {' {ThemeEngine, Hero, FeatureGrid, Pricing, FAQ} '}</span>
               <span className="bg-(--lithos-accent-text) text-(--lithos-accent) px-1 mx-1 font-black">from</span>
-              <span className="text-(--lithos-accent-text) border-b-4 border-(--lithos-accent-text) italic font-black"> 'lithos-ui'</span>
+              <span className="text-(--lithos-accent-text) border-(--lithos-accent-text) italic font-black"> './components'</span>
               <span className="text-(--lithos-accent-text) font-bold">{`\n\n`}</span>
 
               <span className="bg-(--lithos-accent-text) text-(--lithos-accent) px-1 mx-1 font-black">export</span>
               <span className="bg-(--lithos-accent-text) text-(--lithos-accent) px-1 mx-1 font-black">default</span>
               <span className="text-(--lithos-accent-text) font-bold"> </span>
               <span className="bg-(--lithos-accent-text) text-(--lithos-accent) px-1 mx-1 font-black">function</span>
-              <span className="text-(--lithos-accent-text) font-bold"> LandingPage() {'\n'}</span>
+              <span className="text-(--lithos-accent-text) font-bold"> App() {'\n'}</span>
 
               <span className="text-(--lithos-accent-text) font-bold">  </span>
               <span className="bg-(--lithos-accent-text) text-(--lithos-accent) px-1 mx-1 font-black">return</span>
@@ -64,8 +63,12 @@ function Hero() {
               <span className="text-(--lithos-accent-text) font-black tracking-widest uppercase">&lt;main</span>
               <span className="text-(--lithos-accent-text) font-bold"> className</span>
               <span className="text-(--lithos-accent-text) font-bold">=</span>
-              <span className="text-(--lithos-accent-text) border-b-4 border-(--lithos-accent-text) italic font-black">"theme-obsidian"</span>
+              <span className="text-(--lithos-accent-text) border-b-4 border-(--lithos-accent-text) italic font-black">"obsidian"</span>
               <span className="text-(--lithos-accent-text) font-bold">&gt;</span>
+              <span className="text-(--lithos-accent-text) font-bold">{`\n      `}</span>
+
+              <span className="text-(--lithos-accent-text) font-black tracking-widest uppercase">&lt;ThemeEngine</span>
+              <span className="text-(--lithos-accent-text) font-bold"> /&gt;</span>
               <span className="text-(--lithos-accent-text) font-bold">{`\n      `}</span>
 
               <span className="text-(--lithos-accent-text) font-black tracking-widest uppercase">&lt;Hero</span>
