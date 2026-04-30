@@ -22,7 +22,7 @@ const themes = [
 
 function ThemeEngine() {
   const [activeTheme, setActiveTheme] = useState(() => {
-    return localStorage.getItem('lithos-theme-color') || themes[0].hex
+    return localStorage.getItem('lithos-theme-color') || '#00FF00'
   })
   const { addToast } = useToast()
 
