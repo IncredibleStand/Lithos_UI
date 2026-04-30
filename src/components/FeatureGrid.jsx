@@ -67,7 +67,7 @@ function FeatureGrid() {
 
         <div className="mt-12 flex justify-center">
           <a href="#pricing" className="font-black uppercase tracking-tighter text-(--lithos-text) transition-colors hover:text-(--lithos-accent) cursor-pointer">
-            Explore the full 8-block library →
+            Explore the full library →
           </a>
         </div>
       </div>
