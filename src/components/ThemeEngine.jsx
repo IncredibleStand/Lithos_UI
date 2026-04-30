@@ -20,7 +20,7 @@ const themes = [
 ]
 
 function ThemeEngine() {
-  const [activeTheme, setActiveTheme] = useState(themes[0].hex)
+  const [activeTheme, setActiveTheme] = useState('#00FF00') // Default theme color
 
   const injectGlobalStyles = (accent, text) => {
     let styleTag = document.getElementById('lithos-theme-overrides')
