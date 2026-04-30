@@ -12,11 +12,11 @@ const getContrastText = (hexcolor) => {
 };
 
 const themes = [
-  { name: 'Neon', hex: '#00FF00' },
   { name: 'Cyan', hex: '#00FFFF' },
-  { name: 'Magenta', hex: '#FF00FF' },
+  { name: 'Purple', hex: '#800080' },
   { name: 'Yellow', hex: '#FFFF00' },
   { name: 'Orange', hex: '#FF4500' },
+  { name: 'Pink', hex: '#FFC0CB' },
 ]
 
 function ThemeEngine() {
@@ -54,7 +54,7 @@ function ThemeEngine() {
   }
 
   const handleReset = () => {
-    const defaultHex = themes[0].hex
+    const defaultHex = '#00FF00'
     setActiveTheme(defaultHex)
     injectGlobalStyles(defaultHex, getContrastText(defaultHex))
   }
