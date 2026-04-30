@@ -1,19 +1,4 @@
-import { useToast } from './Toast'
-
 function Hero() {
-  // const { addToast } = useToast();
-
-  const handleTestToast = () => {
-    const types = ['success', 'error', 'warning', 'info', 'default'];
-    const randomType = types[Math.floor(Math.random() * types.length)];
-
-    addToast({
-      title: 'System Alert',
-      message: 'This is a brutalist toast notification with zero-gap and YIQ contrast.',
-      type: randomType,
-    });
-  };
-
   return (
     <section id="top" className="bg-(--lithos-surface) py-24">
       <div className="mx-auto max-w-6xl px-6 text-center">
@@ -44,13 +29,7 @@ function Hero() {
           >
             View on GitHub
           </a>
-          {/* 
-          <button
-            onClick={handleTestToast}
-            className="border-4 border-(--lithos-border) bg-black px-8 py-4 font-black uppercase tracking-tighter leading-none text-white shadow-[6px_6px_0px_0px_var(--lithos-shadow)] transition-shadow duration-150 ease-out hover:shadow-[8px_8px_0px_0px_var(--lithos-shadow)] active:shadow-[2px_2px_0px_0px_var(--lithos-shadow)] cursor-pointer mb-4 md:mb-0"
-          >
-            Test Toast
-          </button> */}
+          
         </div>
 
         {/* Monolithic Terminal Showcase */}

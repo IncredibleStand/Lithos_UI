@@ -1,16 +1,6 @@
 import { useEffect, useState } from 'react'
-import { useToast } from './Toast'
-
-const getContrastText = (hexcolor) => {
-  // Strip hash if present
-  const hex = hexcolor.replace('#', '');
-  const r = parseInt(hex.substr(0, 2), 16);
-  const g = parseInt(hex.substr(2, 2), 16);
-  const b = parseInt(hex.substr(4, 2), 16);
-  // YIQ equation
-  const yiq = (r * 299 + g * 587 + b * 114) / 1000;
-  return yiq >= 128 ? '#000000' : '#FFFFFF';
-};
+import { useToast } from '../hooks/useToast';
+import { getContrastText } from '../utils/yiq';
 
 const themes = [
   { name: 'Cyan', hex: '#00FFFF' },

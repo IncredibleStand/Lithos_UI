@@ -1,51 +1,25 @@
-import React, { createContext, useContext, useState, useCallback } from 'react';
-
-const ToastContext = createContext(null);
-
-export const useToast = () => {
-  const context = useContext(ToastContext);
-  if (!context) {
-    throw new Error('useToast must be used within a ToastProvider');
-  }
-  return context;
-};
-
-// 1. YIQ Contrast Engine
-const getContrastText = (hexcolor) => {
-  if (!hexcolor) return '#000000';
-  if (hexcolor.startsWith('var(')) return '#000000'; // Fallback for CSS vars
-  
-  let hex = hexcolor.replace('#', '');
-  if (hex.length === 3) {
-    hex = hex.split('').map(char => char + char).join('');
-  }
-  const r = parseInt(hex.substr(0, 2), 16) || 0;
-  const g = parseInt(hex.substr(2, 2), 16) || 0;
-  const b = parseInt(hex.substr(4, 2), 16) || 0;
-  
-  // YIQ equation
-  const yiq = (r * 299 + g * 587 + b * 114) / 1000;
-  return yiq >= 128 ? '#000000' : '#FFFFFF';
-};
+import { useState, useCallback } from 'react';
+import { getContrastText } from '../utils/yiq';
+import { ToastContext } from '../hooks/useToast';
 
 export const ToastProvider = ({ children }) => {
   const [toasts, setToasts] = useState([]);
 
+  const removeToast = useCallback((id) => {
+    setToasts(prev => prev.filter(toast => toast.id !== id));
+  }, []);
+
   const addToast = useCallback(({ message, type = 'default', color, title }) => {
     const id = Math.random().toString(36).substring(2, 9);
     setToasts(prev => [...prev, { id, message, type, color, title }]);
-    
+
     // Auto remove after 5 seconds
     setTimeout(() => {
       removeToast(id);
     }, 5000);
-    
-    return id;
-  }, []);
 
-  const removeToast = useCallback((id) => {
-    setToasts(prev => prev.filter(toast => toast.id !== id));
-  }, []);
+    return id;
+  }, [removeToast]);
 
   return (
     <ToastContext.Provider value={{ addToast, removeToast }}>
@@ -98,7 +72,7 @@ const ToastItem = ({ toast, onRemove }) => {
         
         <button 
           onClick={onRemove}
-          className="ml-4 flex-shrink-0 p-3 border-[4px] border-inherit bg-transparent cursor-pointer transition-transform duration-150 ease-out hover:scale-110 active:scale-95 shadow-[4px_4px_0px_0px_var(--lithos-shadow)] hover:shadow-[6px_6px_0px_0px_var(--lithos-shadow)] active:shadow-[2px_2px_0px_0px_var(--lithos-shadow)]"
+          className="ml-4 shrink-0 p-3 border-4 border-inherit bg-transparent cursor-pointer transition-transform duration-150 ease-out hover:scale-110 active:scale-95 shadow-[4px_4px_0px_0px_var(--lithos-shadow)] hover:shadow-[6px_6px_0px_0px_var(--lithos-shadow)] active:shadow-[2px_2px_0px_0px_var(--lithos-shadow)]"
           aria-label="Close notification"
           style={{ borderColor: textColor }}
         >

@@ -7,7 +7,7 @@ import Testimonials from './components/Testimonials.jsx'
 import FAQ from './components/FAQ.jsx'
 import ThemeEngine from './components/ThemeEngine.jsx'
 import Footer from './components/Footer.jsx'
-import { useToast } from './components/Toast.jsx'
+import { useToast } from './hooks/useToast';
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(() => {
