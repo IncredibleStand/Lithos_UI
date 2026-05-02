@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Fragment+Mono:ital,wght@0,400;0,700;0,900;1,400&family=Barlow:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fragment+Mono:ital,wght@0,400;0,700;0,900;1,400&display=swap');
 @import "tailwindcss";
 
 @theme {
   --font-sans: 'Fragment Mono', ui-sans-serif, system-ui, sans-serif;
-  --font-body: 'Barlow', ui-sans-serif, system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --font-body: 'Fragment Mono', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'Fragment Mono', ui-monospace, monospace;
 }
 
 :root {
