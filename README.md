@@ -1,4 +1,7 @@
+
 # LITHOS UI
+
+![Lithos UI logo](src/assets/lithos-logo.webp)
 
 **Build frontends that refuse to break.**
 
