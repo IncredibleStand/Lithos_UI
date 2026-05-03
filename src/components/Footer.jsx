@@ -5,12 +5,12 @@ function Footer({ isDarkMode, onToggleObsidian }) {
         {/* Column 1: Brand & Copyright */}
         <div className="mb-16 flex w-full flex-col justify-between lg:mb-0 lg:w-1/2">
           <div>
-            <p className="text-4xl font-black uppercase tracking-tighter leading-none md:text-6xl text-(--lithos-accent-text)">LITHOS UI</p>
+            <p className="text-4xl font-black tracking-tighter leading-none md:text-6xl text-(--lithos-accent-text)">Lithos UI</p>
             <p className="mt-4 max-w-md text-lg font-bold uppercase tracking-tighter leading-none text-(--lithos-accent-text)">
               Stop wrestling with fragile layouts. Drop in production-ready, zero-gap React blocks and ship your next product today.
             </p>
           </div>
-          <p className="mt-12 lg:mt-0 text-sm font-bold uppercase tracking-tighter leading-none text-(--lithos-accent-text)">
+          <p className="mt-12 lg:mt-0 text-sm font-bold tracking-tighter leading-none text-(--lithos-accent-text)">
             Copyright {new Date().getFullYear()} Lithos UI. All rights reserved.
           </p>
         </div>

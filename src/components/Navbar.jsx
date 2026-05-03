@@ -14,8 +14,8 @@ function Navbar() {
     <header className="fixed top-0 z-50 w-full border-b-4 border-(--lithos-border) bg-(--lithos-surface)">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
         <div className="flex items-center justify-start lg:w-1/3">
-          <a href="#top" className="font-black text-2xl uppercase tracking-tighter leading-none text-(--lithos-text) cursor-pointer">
-            LITHOS UI
+          <a href="#top" className="font-black text-2xl  tracking-tighter leading-none text-(--lithos-text) cursor-pointer">
+            Lithos UI
           </a>
         </div>
 

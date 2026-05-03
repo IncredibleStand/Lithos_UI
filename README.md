@@ -1,5 +1,5 @@
 
-# LITHOS UI
+# Lithos UI
 
 ![Lithos UI logo](src/assets/lithos-logo.webp)
 
