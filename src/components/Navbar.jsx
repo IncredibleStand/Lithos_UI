@@ -14,7 +14,10 @@ function Navbar() {
     <header className="fixed top-0 z-50 w-full border-b-4 border-(--lithos-border) bg-(--lithos-surface)">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
         <div className="flex items-center justify-start lg:w-1/3">
-          <a href="#top" className="font-black text-2xl  tracking-tighter leading-none text-(--lithos-text) cursor-pointer">
+          <a
+            href="#top"
+            className="border-4 border-(--lithos-border) bg-(--lithos-accent) px-5 py-3 font-black tracking-tighter leading-none text-(--lithos-accent-text) shadow-[4px_4px_0px_0px_var(--lithos-shadow)] transition-shadow duration-150 ease-out hover:shadow-[6px_6px_0px_0px_var(--lithos-shadow)] active:shadow-[2px_2px_0px_0px_var(--lithos-shadow)] cursor-pointer"
+          >
             Lithos UI
           </a>
         </div>
@@ -26,8 +29,8 @@ function Navbar() {
               href={link.href}
               className={
                 index === 0
-                  ? 'font-black uppercase tracking-tighter leading-none text-(--lithos-text) transition-all duration-150 ease-out active:translate-y-0 active:shadow-[2px_2px_0px_0px_var(--lithos-shadow)] cursor-pointer'
-                  : 'ml-8 font-black uppercase tracking-tighter leading-none text-(--lithos-text) transition-all duration-150 ease-out active:translate-y-0 active:shadow-[2px_2px_0px_0px_var(--lithos-shadow)] cursor-pointer'
+                  ? 'font-black uppercase tracking-tighter leading-none text-(--lithos-text) transition-all duration-150 ease-out hover:text-(--lithos-accent) cursor-pointer'
+                  : 'ml-8 font-black uppercase tracking-tighter leading-none text-(--lithos-text) transition-all duration-150 ease-out hover:text-(--lithos-accent) cursor-pointer'
               }
             >
               {link.label}
