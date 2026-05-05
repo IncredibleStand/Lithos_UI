@@ -1,11 +1,11 @@
-import Navbar from '../components/Navbar.jsx'
-import Hero from '../components/Hero.jsx'
-import FeatureGrid from '../components/FeatureGrid.jsx'
-import Pricing from '../components/Pricing.jsx'
-import Testimonials from '../components/Testimonials.jsx'
-import FAQ from '../components/FAQ.jsx'
-import ThemeEngine from '../components/ThemeEngine.jsx'
-import Footer from '../components/Footer.jsx'
+import Navbar from '../components/layout/Navbar'
+import Hero from '../components/sections/Hero'
+import FeatureGrid from '../components/sections/FeatureGrid'
+import Pricing from '../components/sections/Pricing'
+import Testimonials from '../components/sections/Testimonials'
+import FAQ from '../components/sections/FAQ'
+import ThemeEngine from '../components/sections/ThemeEngine'
+import Footer from '../components/layout/Footer'
 
 /**
  * Showroom Component - Landing Page UI Composition
