@@ -20,8 +20,8 @@ const plans = [
       { label: 'Dynamic Theme Engine', included: true },
       { label: 'Open Source License', included: true },
     ],
-    goal: 'The complete engineered UI kit. Free forever.',
-    cta: 'Download the Kit',
+    goal: 'The complete engineered UI library. Free forever.',
+    cta: 'Get Started',
   },
 ]
 

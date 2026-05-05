@@ -11,7 +11,7 @@ const faqs = [
   {
     question: 'Is Lithos UI production ready?',
     answer:
-      'Yes. The kit is structured for reliable composition, predictable spacing, and resilient visual contrast.',
+      'Yes. The library is structured for reliable composition, predictable spacing, and resilient visual contrast.',
   },
   {
     question: 'Does it work with Tailwind?',

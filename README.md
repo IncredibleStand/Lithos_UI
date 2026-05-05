@@ -5,7 +5,7 @@
 
 **Build frontends that refuse to break.**
 
-Lithos UI is a free, neo-brutalist React component kit engineered with absolute structural integrity. It ditches fragile CSS gaps and soft shadows in favor of hard math, rigid grids, and high-contrast accessibility.
+Lithos UI is a free, neo-brutalist React component library engineered with absolute structural integrity. It ditches fragile CSS gaps and soft shadows in favor of hard math, rigid grids, and high-contrast accessibility.
 
 ## Core Architecture
 
@@ -40,7 +40,7 @@ Click the green **"Use this template"** button at the top of the repository to i
 
 ## Global Design Tokens
 
-The entire visual weight of the kit is controlled by these 7 variables. Modify them in your `index.css` or manipulate them via Javascript for live-theming.
+The entire visual weight of the library is controlled by these 7 variables. Modify them in your `index.css` or manipulate them via Javascript for live-theming.
 
 ```css
 :root {
