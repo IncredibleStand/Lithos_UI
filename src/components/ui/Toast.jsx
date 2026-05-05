@@ -6,8 +6,8 @@
  */
 
 import { useState, useCallback } from 'react';
-import { getContrastText } from '../utils/yiq';
-import { ToastContext } from '../hooks/useToast';
+import { getContrastText } from '../../utils/yiq';
+import { ToastContext } from '../../core/hooks/useToast';
 
 export const ToastProvider = ({ children }) => {
   const [toasts, setToasts] = useState([]);

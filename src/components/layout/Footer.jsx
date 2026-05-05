@@ -5,8 +5,8 @@
  * - Couples the theme toggle with toast feedback so state changes are visible and immediate.
  */
 
-import { useToast } from '../hooks/useToast';
-import Toggle from './Toggle.jsx'
+import { useToast } from '../../core/hooks/useToast';
+import Toggle from '../ui/Toggle'
 
 function Footer({ isDarkMode, onToggleObsidian }) {
   const { addToast } = useToast()
