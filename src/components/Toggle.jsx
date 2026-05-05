@@ -1,42 +1,26 @@
 /**
- * Lithos UI: Kinetic Toggle Component
- * 
- * Architectural Directives:
- * 1. Zero-Gap: Internal alignment relies entirely on explicit dimensions and padding.
- * 2. Neo-Brutalist Physics: The parent remains stationary. Hover state is achieved 
- *    solely by increasing the bottom-right solid block shadow offset.
- * 3. Binary Contrast: The inner thumb dynamically inverts its solid color opposite 
- *    to the track to maintain high-contrast visibility.
+ * @fileoverview Lithos UI kinetic toggle.
+ * - Zero-gap: fixed track and thumb dimensions make the motion arithmetic exact.
+ * - Neo-brutalist physics: shadow steps move; the parent never translates.
+ * - Binary contrast: thumb and track invert as one hard state change.
  */
 function Toggle({ checked, onToggle, label = 'Theme Changed' }) {
+  // - Stationary shell: only the shadow changes, so surrounding layout never shifts.
   return (
     <button
       type="button"
       onClick={onToggle}
       aria-pressed={checked}
       aria-label={label}
-      // THE WRAPPER (Stationary Element)
-      // cursor-pointer is enforced. 
-      // NO transform/translate properties are used here to prevent the entire block from shifting.
-      // We solely transition the box-shadow from 4px to 6px to create the physical hover press.
       className="inline-flex cursor-pointer items-center border-4 border-black bg-white px-2 py-2 text-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-shadow duration-200 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] active:shadow-[0px_0px_0px_0px_rgba(0,0,0,1)]"
     >
-      {/* 
-        THE TRACK
-        w-20 (80px) and h-10 (40px) define the absolute boundaries for the sliding thumb.
-        The background completely inverts (white -> black) based on the active state.
-      */}
+      {/* Track math: 80x40 with 4px borders and 4px padding leaves exact travel room. */}
       <span
         className={`flex h-10 w-20 items-center border-4 border-black p-1 transition-colors duration-150 ease-out ${
           checked ? 'bg-black' : 'bg-white'
         }`}
       >
-        {/* 
-          THE THUMB (Solid Block)
-          w-6 h-6 (24px) fits perfectly inside the track's h-10 minus the p-1 padding.
-          When clicked, it translates exactly 40px (translate-x-10) across the X-axis.
-          The border AND background colors invert simultaneously to ensure it remains a solid block.
-        */}
+        {/* Thumb math: 24px block + 4px track padding = exact 40px travel on toggle. */}
         <span
           className={`block h-6 w-6 border-4 transition-transform duration-150 ease-out ${
             checked
@@ -46,7 +30,7 @@ function Toggle({ checked, onToggle, label = 'Theme Changed' }) {
         />
       </span>
       
-      {/* Screen reader only text for accessibility */}
+      {/* Screen-reader label stays outside the visual math. */}
       <span className="sr-only">{label}</span>
     </button>
   );

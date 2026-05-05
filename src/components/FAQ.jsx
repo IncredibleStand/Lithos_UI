@@ -1,3 +1,10 @@
+/**
+ * @fileoverview Lithos UI accordion stack.
+ * - Packs questions into a hard-edged vertical wall with explicit open/closed slabs.
+ * - Uses the same zero-gap spacing language as the rest of the system.
+ * - Keeps the reveal motion physical by changing fill weight, not layout flow.
+ */
+
 import { useState } from 'react'
 
 const faqs = [
@@ -37,6 +44,7 @@ function FAQ() {
           Frequently Asked Questions
         </h2>
 
+        {/* - 24px shell keeps the accordion aligned with the page rhythm. */}
         <div className="mt-20">
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index
@@ -46,6 +54,7 @@ function FAQ() {
                 key={faq.question}
                 className={index === 0 ? 'border-4 border-(--lithos-border) bg-(--lithos-surface) transition-all duration-150 ease-out' : 'mt-6 border-4 border-(--lithos-border) bg-(--lithos-surface) transition-all duration-150 ease-out'}
               >
+                {/* - Open/closed states shift color and mass, not geometry. */}
                 <button
                   type="button"
                   onClick={() => toggleItem(index)}
@@ -64,6 +73,7 @@ function FAQ() {
                   </span>
                 </button>
 
+                {/* - The answer is a separate slab with a hard top border to preserve the stack. */}
                 {isOpen ? (
                   <div className="border-t-4 border-(--lithos-border) bg-(--lithos-accent) px-6 py-6">
                     <p className="text-lg font-bold uppercase tracking-tighter leading-none text-(--lithos-accent-text)">{faq.answer}</p>

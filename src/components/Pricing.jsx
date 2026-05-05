@@ -1,4 +1,11 @@
-// Pricing plans pivoted to a single 100% free Complete Assembly
+/**
+ * @fileoverview Lithos UI pricing slab.
+ * - Collapses the model into one free assembly block to keep the repository fully usable.
+ * - Uses heavier borders and shadow offset on the highlighted tier to make the primary offer carry more physical weight.
+ * - Preserves zero-gap spacing with a centered single-card composition.
+ */
+
+// - Single-plan model keeps the kit FOSS-first and avoids fake tier fragmentation.
 const plans = [
   {
     key: 'complete-assembly',
@@ -29,7 +36,8 @@ function Pricing() {
           Lithos UI is completely free and open-source. Just raw, portable components engineered for production.
         </p>
 
-        {/* parent negative margin to align child margins with surrounding headers - single centered plan */}
+        {/* - 24px shell above and below keeps the pricing slab on the same cadence as the rest of the page. */}
+        {/* - Negative outer margin cancels card gutters so the single tier stays centered. */}
         <div className="mt-20 -m-4 flex justify-center">
           {plans.map((tier) => {
             const highlighted = tier.highlighted === true
@@ -43,10 +51,12 @@ function Pricing() {
                     : 'm-4 flex w-[calc(100%-2rem)] max-w-2xl flex-col border-4 border-(--lithos-border) bg-(--lithos-surface) p-6 sm:p-10 shadow-[6px_6px_0px_0px_var(--lithos-shadow)] transition-shadow duration-150 ease-out hover:shadow-[10px_10px_0px_0px_var(--lithos-shadow)] active:shadow-[2px_2px_0px_0px_var(--lithos-shadow)] motion-safe:animate-[slide-up_400ms_cubic-bezier(0.175,0.885,0.32,1.275)]'
                 }
               >
+                {/* - Highlighted tier gets the bigger shadow offset so the primary offer carries more mass. */}
                 <h3 className={`text-3xl font-black uppercase tracking-tighter leading-none text-(--lithos-accent-text)`}>{tier.title}</h3>
                 <p className={`mt-4 text-4xl sm:text-5xl font-black uppercase tracking-tighter leading-none text-(--lithos-accent-text)`}>{tier.price}</p>
                 <p className={`mt-4 text-base font-medium leading-snug text-(--lithos-accent-text)`}>{tier.goal}</p>
 
+                {/* - Feature list uses explicit bottom spacing to keep each line independently readable. */}
                 <div className="mt-8">
                   <ul>
                     {tier.features && tier.features.map((feature, i) => (
@@ -65,6 +75,7 @@ function Pricing() {
                   </ul>
                 </div>
 
+                {/* - CTA stays pinned to the bottom edge so the slab reads top-to-bottom as one unit. */}
                 <div className="mt-auto pt-8">
                   <a
                     href="#top"
@@ -85,10 +96,5 @@ function Pricing() {
     </section>
   )
 }
-
-// Branching guidance (developer note):
-// - `free` branch: include only the files listed in Starter Block
-// - `starter` branch: include the raw components (Starter Kit)
-// - `pro` branch: include the full project with `App.jsx` assembled (Pro Assembly)
 
 export default Pricing

@@ -1,3 +1,10 @@
+/**
+ * @fileoverview Lithos UI token laboratory.
+ * - Rebinds accent and contrast tokens at the cascade root so the whole system moves together.
+ * - Uses YIQ contrast selection to keep the swatches legible across bright and dark colors.
+ * - Treats the palette as a physical control board with hard tiles and explicit offsets.
+ */
+
 import { useEffect, useState } from 'react'
 import { getContrastText } from '../utils/yiq';
 
@@ -10,11 +17,13 @@ const themes = [
 ]
 
 function ThemeEngine() {
+  // - Persisted accent seed keeps the system deterministic across reloads.
   const [activeTheme, setActiveTheme] = useState(() => {
     return localStorage.getItem('lithos-theme-color') || '#00FF00'
   })
 
   const injectGlobalStyles = (accent, text) => {
+    // - One style tag rewires the cascade so every token inherits the same accent axis.
     let styleTag = document.getElementById('lithos-theme-overrides')
 
     if (!styleTag) {
@@ -40,6 +49,7 @@ function ThemeEngine() {
   }, [activeTheme])
 
   const handleThemeChange = (hex) => {
+    // - YIQ keeps accent text readable; the UI never guesses at contrast.
     const textColor = getContrastText(hex)
     setActiveTheme(hex)
     injectGlobalStyles(hex, textColor)
@@ -47,12 +57,14 @@ function ThemeEngine() {
   }
 
   const handleReset = () => {
+    // - Reset returns to the canonical seed token.
     const defaultHex = '#00FF00'
     setActiveTheme(defaultHex)
     injectGlobalStyles(defaultHex, getContrastText(defaultHex))
     localStorage.removeItem('lithos-theme-color')
   }
 
+  // - 8px border + 8px shadow keep the control board heavy and explicit.
   return (
     <section id="theme-engine" className="bg-(--lithos-surface) py-24">
       <div className="mx-auto max-w-4xl px-6 text-center">
@@ -69,6 +81,7 @@ function ThemeEngine() {
             const isActive = activeTheme === theme.hex
 
             return (
+              // - Each swatch is a 64/96px tile with a hard edge; active state only changes shadow depth.
               <button
                 key={theme.hex}
                 type="button"
@@ -85,7 +98,7 @@ function ThemeEngine() {
             )
           })}
 
-          {/* Custom Color Picker */}
+          {/* - Custom picker keeps the tile geometry fixed while the input floats invisibly on top. */}
           <div
             className={`relative m-2 h-16 w-[calc(50%-1rem)] sm:m-4 sm:h-24 sm:w-24 shrink-0 border-4 border-(--lithos-border) bg-(--lithos-surface) transition-all duration-150 ease-out cursor-pointer group ${!themes.some((t) => t.hex === activeTheme) ? 'shadow-[2px_2px_0px_0px_var(--lithos-shadow)]' : 'shadow-[6px_6px_0px_0px_var(--lithos-shadow)] hover:shadow-[10px_10px_0px_0px_var(--lithos-shadow)] active:shadow-[2px_2px_0px_0px_var(--lithos-shadow)]'}`}
             style={{
@@ -119,6 +132,7 @@ function ThemeEngine() {
 
           </div>
 
+          {/* - Reset sits below a hard divider so the board reads as one rooted module. */}
           <div className="mt-10 sm:mt-12 flex w-full justify-center border-t-4 border-(--lithos-border) pt-10 sm:pt-12">
             <button
               type="button"

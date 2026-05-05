@@ -1,6 +1,15 @@
+/**
+ * @fileoverview Lithos UI global stylesheet and physics engine.
+ * - Integrates Tailwind CSS v4 and establishes the typography baseline.
+ * - Defines the root CSS custom properties for instant zero-render theme toggling.
+ * - Establishes the 'obsidian' dark mode cascade override.
+ * - Registers brutalist keyframes (hard physical stops, no soft easing).
+ */
+
 @import url('https://fonts.googleapis.com/css2?family=Fragment+Mono:ital,wght@0,400;0,700;0,900;1,400&display=swap');
 @import "tailwindcss";
 
+/* - Tailwind v4 API: Overrides default sans/mono stacks with the brutalist Fragment Mono. */
 @theme {
   --font-sans: 'Fragment Mono', ui-sans-serif, system-ui, sans-serif;
   --font-body: 'Fragment Mono', ui-sans-serif, system-ui, sans-serif;
@@ -8,6 +17,7 @@
 }
 
 :root {
+  /* - Default Light Theme: High contrast, heavy white/black balance. */
   --lithos-bg: #ffffff;
   --lithos-text: #000000;
   --lithos-border: #000000;
@@ -24,6 +34,8 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* - Obsidian Mode: Inverts the environmental tokens without touching the structural CSS. */
+/* - Shadows use maximum opacity (rgba 1) to remain solid blocks against the dark background. */
 .obsidian,
 body.obsidian {
   --lithos-bg: #000000;
@@ -37,10 +49,11 @@ body.obsidian {
 }
 
 html {
+  /* - Spacing Math: 96px offset accounts for the fixed Navbar height during anchor link scrolling. */
+  /* - Prevents the zero-gap navbar from covering up section headers when clicked from the footer. */
   scroll-padding-top: 96px; 
   scroll-behavior: smooth;
 }
-
 
 body {
   margin: 0;
@@ -49,6 +62,7 @@ body {
   color: var(--lithos-text);
 }
 
+/* - Z-axis lift: Objects scale up to simulate physical mass moving closer to the user. */
 @keyframes brutalist-pop {
   0% {
     opacity: 0;
@@ -61,6 +75,7 @@ body {
   }
 }
 
+/* - Y-axis lift: Objects slide up into the grid to imply solid construction. */
 @keyframes slide-up {
   0% {
     opacity: 0;
