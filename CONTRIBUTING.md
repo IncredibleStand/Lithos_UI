@@ -41,7 +41,15 @@ Every PR must include:
 - **Architectural Compliance:** A confirmation that the "Zero-Gap" rule was followed.
 - **Visual Check:** Screenshots or videos of the component in both Light and Obsidian modes.
 
-## 6. Prohibited Changes
+## 6. Tooling & Linting
+
+To maintain Lithos UI's high structural standards, we use automated linting:
+
+- **ESLint:** We enforce React best practices and clean import structures. While we ignore minor stylistic noise, syntax errors and hook violations will block your PR.
+- **CI Pipeline:** Every Pull Request triggers a GitHub Action that runs `pnpm build`. If the build fails, the PR cannot be merged.
+- **Pre-submission Check:** Run `pnpm lint` locally before pushing to ensure your code passes the pipeline.
+
+## 7. Prohibited Changes
 
 - **No Framework Assumptions:** Do not add dependencies or logic specific to Next.js, Remix, or Vite. Lithos UI must remain framework-agnostic.
 - **No External Motion Libraries:** Use the internal CSS keyframes defined in `index.css` for animations.
