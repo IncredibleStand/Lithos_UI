@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { useToast } from '../hooks/useToast';
 import { getContrastText } from '../utils/yiq';
 
 const themes = [
@@ -14,7 +13,6 @@ function ThemeEngine() {
   const [activeTheme, setActiveTheme] = useState(() => {
     return localStorage.getItem('lithos-theme-color') || '#00FF00'
   })
-  const { addToast } = useToast()
 
   const injectGlobalStyles = (accent, text) => {
     let styleTag = document.getElementById('lithos-theme-overrides')
@@ -46,16 +44,6 @@ function ThemeEngine() {
     setActiveTheme(hex)
     injectGlobalStyles(hex, textColor)
     localStorage.setItem('lithos-theme-color', hex)
-    
-    // Determine the name of the theme if it's predefined
-    const themeObj = themes.find(t => t.hex === hex)
-    const themeName = themeObj ? themeObj.name : 'Custom'
-
-    addToast({
-      title: 'THEME APPLIED',
-      message: `Global accent color set to ${themeName} (${hex}).`,
-      color: hex,
-    })
   }
 
   const handleReset = () => {
@@ -63,12 +51,6 @@ function ThemeEngine() {
     setActiveTheme(defaultHex)
     injectGlobalStyles(defaultHex, getContrastText(defaultHex))
     localStorage.removeItem('lithos-theme-color')
-    
-    addToast({
-      title: 'THEME RESET',
-      message: 'Global accent color reverted to default.',
-      type: 'default',
-    })
   }
 
   return (

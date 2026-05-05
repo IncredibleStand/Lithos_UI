@@ -7,25 +7,16 @@ import Testimonials from './components/Testimonials.jsx'
 import FAQ from './components/FAQ.jsx'
 import ThemeEngine from './components/ThemeEngine.jsx'
 import Footer from './components/Footer.jsx'
-import { useToast } from './hooks/useToast';
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(() => {
     return localStorage.getItem('lithos-theme-mode') === 'dark'
   })
-  const { addToast } = useToast()
 
   const toggleObsidian = () => {
     const nextMode = !isDarkMode;
     setIsDarkMode(nextMode);
     localStorage.setItem('lithos-theme-mode', nextMode ? 'dark' : 'light');
-    
-    addToast({
-      title: 'THEME CHANGED',
-      message: nextMode ? 'Theme changed to Obsidian mode.' : 'Theme changed to Light mode.',
-      type: 'default',
-      color: nextMode ? '#000000' : '#FFFFFF',
-    });
   }
 
   return (

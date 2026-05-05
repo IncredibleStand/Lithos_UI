@@ -1,4 +1,22 @@
+import { useToast } from '../hooks/useToast';
+import Toggle from './Toggle.jsx'
+
 function Footer({ isDarkMode, onToggleObsidian }) {
+  const { addToast } = useToast()
+
+  const handleToggleObsidian = () => {
+    const nextMode = !isDarkMode
+
+    onToggleObsidian()
+
+    addToast({
+      title: 'THEME CHANGED',
+      message: nextMode ? 'Obsidian Mode Activated.' : 'Light Mode Activated.',
+      type: 'default',
+      color: nextMode ? '#000000' : '#FFFFFF',
+    })
+  }
+
   return (
     <footer className="relative overflow-hidden border-t-8 border-(--lithos-border) bg-(--lithos-accent) px-6 py-20 text-(--lithos-accent-text)">
       <div className="mx-auto flex max-w-7xl flex-col lg:flex-row lg:items-start lg:justify-between">
@@ -29,13 +47,9 @@ function Footer({ isDarkMode, onToggleObsidian }) {
           <a href="#faq" className="mt-4 text-2xl font-black uppercase tracking-tighter leading-none transition-all duration-150 ease-out active:translate-y-0 active:shadow-[2px_2px_0px_0px_var(--lithos-shadow)] md:text-4xl cursor-pointer text-(--lithos-accent-text)">
             FAQ
           </a>
-          <button
-            type="button"
-            onClick={onToggleObsidian}
-            className="mt-4 text-left text-2xl font-black uppercase tracking-tighter leading-none transition-colors duration-150 ease-out cursor-pointer md:text-4xl text-(--lithos-accent-text) px-2 py-1 -ml-2"
-          >
-            {isDarkMode ? 'Light Mode' : 'Obsidian Mode'}
-          </button>
+          <div className="mt-4 flex items-center">
+            <Toggle checked={isDarkMode} onToggle={handleToggleObsidian} label="Toggle Obsidian Mode" />
+          </div>
         </div>
 
         {/* Column 3: Sponsor */}
