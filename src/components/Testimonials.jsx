@@ -1,3 +1,10 @@
+/**
+ * @fileoverview Lithos UI testimonial wall.
+ * - Turns social proof into the same hard-surfaced card language as the rest of the system.
+ * - Uses explicit margins and shadow steps so the quotes read as physical plaques.
+ * - Keeps the grid wide and stable to avoid visual drift in the proof section.
+ */
+
 const testimonials = [
   {
     quote: 'Lithos UI gave our launch page a spine. It looks aggressive and stays readable.',
@@ -24,17 +31,20 @@ function Testimonials() {
           Proof From the Front Lines
         </h2>
 
+        {/* - Negative outer margin keeps the quote grid centered without gap-based layout math. */}
         <div className="mt-20 -m-4 flex flex-wrap justify-center">
           {testimonials.map((testimonial) => (
             <article
               key={testimonial.name}
               className="m-4 flex w-full sm:w-[calc(50%-2rem)] lg:w-[calc(33.333%-2rem)] flex-col border-4 border-(--lithos-border) bg-(--lithos-accent) p-6 shadow-[6px_6px_0px_0px_var(--lithos-shadow)] transition-all duration-150 ease-out hover:shadow-[10px_10px_0px_0px_var(--lithos-shadow)] active:shadow-[2px_2px_0px_0px_var(--lithos-shadow)]"
             >
+              {/* - 6px shadow offset gives the quote plaque a clear physical edge. */}
               <p className="text-lg font-black uppercase tracking-tighter leading-none text-(--lithos-accent-text)">★★★★★</p>
               <p className="mt-4 text-2xl font-black uppercase tracking-tighter leading-none text-(--lithos-accent-text)">
                 {testimonial.quote}
               </p>
 
+              {/* - Avatar + byline stay compact so the plaque weight remains on the quote. */}
               <div className="mt-8 flex items-center">
                 <div className="h-12 w-12 rounded-full border-4 border-(--lithos-border) bg-(--lithos-surface)" aria-hidden="true" />
                 <div className="ml-4">

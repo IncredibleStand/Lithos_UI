@@ -1,3 +1,10 @@
+/**
+ * @fileoverview Lithos UI top rail.
+ * - Holds the brand, primary anchors, and mobile escape hatch in one fixed slab.
+ * - Uses hard borders and a pinned edge to keep the header visually immovable.
+ * - Preserves the page rhythm by reserving a predictable top strip for navigation.
+ */
+
 import { useState } from 'react'
 
 const links = [
@@ -12,7 +19,10 @@ function Navbar() {
 
   return (
     <header className="fixed top-0 z-50 w-full border-b-4 border-(--lithos-border) bg-(--lithos-surface)">
+      {/* - Fixed rail: the 4px bottom border marks the top boundary of the app. */}
+      {/* - 24px vertical padding gives the bar enough mass to read as a slab, not a strip. */}
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
+        {/* - Brand block takes the left third so the center lane stays visually neutral. */}
         <div className="flex items-center justify-start lg:w-1/3">
           <a
             href="#top"
@@ -22,6 +32,7 @@ function Navbar() {
           </a>
         </div>
 
+      {/* - Center lane is reserved for wayfinding; it only appears when width can support the symmetry. */}
       <nav className="hidden items-center justify-center lg:flex lg:w-1/3">
         {links.map((link) => (
           <a
@@ -34,6 +45,7 @@ function Navbar() {
         ))}
       </nav>
 
+        {/* - Action block balances the brand block and keeps the header geometry stable. */}
         <div className="hidden items-center justify-end lg:flex lg:w-1/3">
           <a
             href="https://github.com/IncredibleStand/Lithos_UI"
@@ -45,6 +57,7 @@ function Navbar() {
           </a>
         </div>
 
+        {/* - Mobile collapses to one control so the header keeps a predictable width and height. */}
         <div className="flex lg:hidden">
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -55,6 +68,7 @@ function Navbar() {
         </div>
       </div>
 
+      {/* - The mobile sheet drops under the rail with a hard border and an 8px shadow step. */}
       {isMenuOpen && (
         <nav className="flex flex-col border-t-4 border-(--lithos-border) bg-(--lithos-surface) p-6 shadow-[0px_8px_0px_0px_var(--lithos-shadow)] lg:hidden">
           {links.map((link) => (

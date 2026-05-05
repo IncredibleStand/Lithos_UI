@@ -1,3 +1,10 @@
+/**
+ * @fileoverview Lithos UI toast stack.
+ * - Floats transient feedback outside the page flow so notifications never steal layout space.
+ * - Uses explicit margins and fixed positioning to keep the stack predictable.
+ * - Applies per-toast contrast and heavy borders so alerts read as hard objects.
+ */
+
 import { useState, useCallback } from 'react';
 import { getContrastText } from '../utils/yiq';
 import { ToastContext } from '../hooks/useToast';
@@ -13,7 +20,7 @@ export const ToastProvider = ({ children }) => {
     const id = Math.random().toString(36).substring(2, 9);
     setToasts(prev => [...prev, { id, message, type, color, title }]);
 
-    // Auto remove after 5 seconds
+    // - Auto-clear keeps the stack transient; it never becomes a second inbox.
     setTimeout(() => {
       removeToast(id);
     }, 5000);
@@ -24,7 +31,7 @@ export const ToastProvider = ({ children }) => {
   return (
     <ToastContext.Provider value={{ addToast, removeToast }}>
       {children}
-      {/* Container for toasts - relying on explicit margins, not gap */}
+      {/* - Fixed corner stack uses explicit padding and margins, not gap, so each toast remains independently dismissible. */}
       <div className="fixed bottom-0 right-0 z-50 p-4 sm:p-6 md:p-8 pointer-events-none flex flex-col items-end w-full max-w-md">
         {toasts.map(toast => (
           <ToastItem key={toast.id} toast={toast} onRemove={() => removeToast(toast.id)} />
@@ -51,7 +58,7 @@ const ToastItem = ({ toast, onRemove }) => {
   return (
     <>
       <style>{`
-        /* 3. !important global override variables for background colors */
+        /* - Per-toast override keeps contrast local to the alert tile. */
         .toast-override-${id} {
           background-color: ${bgColor} !important;
           color: ${textColor} !important;
@@ -59,8 +66,8 @@ const ToastItem = ({ toast, onRemove }) => {
         }
       `}</style>
       
-      {/* 4. High-contrast, thick borders (min 4px) and hard drop shadows */}
-      {/* 2. Zero-gap architecture: using flex and explicit margins inside */}
+      {/* - 6px border + 8px shadow turns the alert into a hard plaque, not a soft card. */}
+      {/* - Stack spacing uses explicit margins so each toast keeps its own exit path. */}
       <div 
         role="alert"
         className={`toast-override-${id} pointer-events-auto border-[6px] shadow-[8px_8px_0px_0px_var(--lithos-shadow)] p-4 sm:p-6 mb-6 w-full flex flex-row items-start transition-all duration-300 ease-out animate-[slide-up_0.3s_ease-out_forwards]`}
@@ -70,6 +77,7 @@ const ToastItem = ({ toast, onRemove }) => {
           <p className="font-bold text-base leading-tight m-0">{message}</p>
         </div>
         
+        {/* - Close control keeps the same hard-edge language as the card. */}
         <button 
           onClick={onRemove}
           className="ml-4 shrink-0 p-3 border-4 border-inherit bg-transparent cursor-pointer transition-transform duration-150 ease-out hover:scale-110 active:scale-95 shadow-[4px_4px_0px_0px_var(--lithos-shadow)] hover:shadow-[6px_6px_0px_0px_var(--lithos-shadow)] active:shadow-[2px_2px_0px_0px_var(--lithos-shadow)]"
