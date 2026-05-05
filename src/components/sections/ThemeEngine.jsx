@@ -6,7 +6,7 @@
  */
 
 import { useEffect, useState } from 'react'
-import { getContrastText } from '../utils/yiq';
+import { getContrastText } from '../../utils/yiq';
 
 const themes = [
   { name: 'Cyan', hex: '#00FFFF' },

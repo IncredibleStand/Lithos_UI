@@ -7,8 +7,8 @@
  * - Showroom component composition
  */
 
-import { useTheme } from './core/useTheme.js'
-import Showroom from './showroom/Index.jsx'
+import { useTheme } from './core/useTheme'
+import Showroom from './showroom/Index'
 
 /**
  * App Component - Orchestrates theme state and renders Showroom UI.
