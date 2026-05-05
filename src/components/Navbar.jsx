@@ -22,12 +22,12 @@ function Navbar() {
           </a>
         </div>
 
-      <nav className="hidden items-center justify-center lg:flex lg:w-1/3 space-x-8">
+      <nav className="hidden items-center justify-center lg:flex lg:w-1/3">
         {links.map((link) => (
           <a
             key={link.label}
             href={link.href}
-            className="font-black uppercase tracking-tighter leading-none text-(--lithos-text) transition-all duration-150 ease-out hover:text-(--lithos-accent) cursor-pointer"
+            className="mx-4 font-black uppercase tracking-tighter leading-none text-(--lithos-text) transition-all duration-150 ease-out hover:text-(--lithos-accent) cursor-pointer"
           >
             {link.label}
           </a>
