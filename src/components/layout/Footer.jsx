@@ -65,7 +65,7 @@ function Footer({ isDarkMode, onToggleObsidian }) {
         {/* - Sponsor CTA uses the same hard-surface language so the support action matches the system physics. */}
         <div className="mt-12 flex w-full flex-col lg:mt-0 lg:w-1/4 lg:items-end">
           <a 
-            href="https://www.patreon.com/IncredibleStand" 
+            href="https://incrediblestand.gumroad.com/l/lithos-ui" 
             target="_blank" 
             rel="noopener noreferrer"
             className="group flex items-center border-4 border-(--lithos-border) bg-(--lithos-surface) p-4 text-2xl font-black uppercase tracking-tighter leading-none text-(--lithos-text) shadow-[6px_6px_0px_0px_var(--lithos-shadow)] transition-all duration-150 ease-out hover:bg-(--lithos-accent) hover:text-(--lithos-accent-text) hover:shadow-[10px_10px_0px_0px_var(--lithos-shadow)] active:translate-y-1 active:translate-x-1 active:shadow-[2px_2px_0px_0px_var(--lithos-shadow)] md:text-3xl"
