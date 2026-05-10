@@ -24,7 +24,7 @@ function Toggle({ checked, onToggle, label = 'Theme Changed' }) {
         <span
           className={`block h-2 w-2 border-2 transition-transform duration-150 ease-out ${
             checked
-              ? 'translate-x-3 border-white bg-white'
+              ? 'translate-x-2 border-white bg-white'
               : 'translate-x-0 border-black bg-black'
           }`}
         />

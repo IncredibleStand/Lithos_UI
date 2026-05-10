@@ -18,7 +18,7 @@ function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
-    <header className="fixed top-0 z-50 w-full border-b-4 border-(--lithos-border) bg-(--lithos-surface)">
+    <header className="fixed top-0 z-50 w-full border-b-2 border-(--lithos-border) bg-(--lithos-surface)">
       {/* - Fixed rail: the 4px bottom border marks the top boundary of the app. */}
       {/* - 24px vertical padding gives the bar enough mass to read as a slab, not a strip. */}
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">

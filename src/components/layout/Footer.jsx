@@ -26,7 +26,7 @@ function Footer({ isDarkMode, onToggleObsidian }) {
   }
 
   return (
-    <footer className="relative overflow-hidden border-t-8 border-(--lithos-border) bg-(--lithos-accent) px-6 py-20 text-(--lithos-accent-text)">
+    <footer className="relative overflow-hidden border-t-2 border-(--lithos-border) bg-(--lithos-accent) px-6 py-20 text-(--lithos-accent-text)">
       {/* - 8px top border makes the footer read as a closing slab, not a soft appendix. */}
       {/* - Three columns are balanced with width fractions, not gap, to preserve structural rhythm. */}
       <div className="mx-auto flex max-w-7xl flex-col lg:flex-row lg:items-start lg:justify-between">

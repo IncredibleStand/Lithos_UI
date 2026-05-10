@@ -40,7 +40,7 @@ export default function DocsLayout({ children, isDarkMode, toggleObsidian, toc }
         </div>
       </div>
 
-      <div className="w-full border-t-4 border-(--lithos-border) bg-(--lithos-bg)">
+      <div className="w-full">
         <Footer isDarkMode={isDarkMode} onToggleObsidian={toggleObsidian} />
       </div>
     </div>
