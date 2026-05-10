@@ -63,8 +63,8 @@ export default function CodeViewer({ code, language = 'jsx' }) {
         </button>
       </div>
 
-      <pre className="overflow-x-auto p-4 md:p-6 text-sm font-mono text-(--lithos-text) m-0">
-        <code>{code}</code>
+      <pre className="overflow-x-auto p-4 md:p-6 text-sm font-code text-(--lithos-text) m-0">
+        <code style={{ fontFamily: 'var(--font-code)' }}>{code}</code>
       </pre>
     </div>
   )

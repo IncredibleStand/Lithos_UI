@@ -51,32 +51,41 @@ function Navbar() {
             href="https://github.com/IncredibleStand/Lithos_UI"
             target="_blank"
             rel="noopener noreferrer"
-            className="border-4 border-(--lithos-border) bg-(--lithos-accent) px-5 py-3 font-black uppercase tracking-tighter leading-none text-(--lithos-accent-text) shadow-[4px_4px_0px_0px_var(--lithos-shadow)] transition-shadow duration-150 ease-out hover:shadow-[6px_6px_0px_0px_var(--lithos-shadow)] active:shadow-[2px_2px_0px_0px_var(--lithos-shadow)] cursor-pointer"
+            className="border-4 border-(--lithos-border) bg-(--lithos-accent) px-5 py-3 font-black tracking-tighter leading-none text-(--lithos-accent-text) shadow-[4px_4px_0px_0px_var(--lithos-shadow)] transition-shadow duration-150 ease-out hover:shadow-[6px_6px_0px_0px_var(--lithos-shadow)] active:shadow-[2px_2px_0px_0px_var(--lithos-shadow)] cursor-pointer"
           >
             GitHub
           </a>
         </div>
 
-        {/* - Mobile collapses to one control so the header keeps a predictable width and height. */}
+        {/* - Mobile Action Toggle (Hamburger / X) */}
         <div className="flex lg:hidden">
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="border-4 border-(--lithos-border) bg-(--lithos-accent) p-2 text-xl font-black uppercase leading-none text-(--lithos-accent-text) shadow-[4px_4px_0px_0px_var(--lithos-shadow)] cursor-pointer"
+            className="flex items-center justify-center h-12 w-12 text-(--lithos-accent) cursor-pointer transition-opacity hover:opacity-80"
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           >
-            {isMenuOpen ? 'CLOSE' : 'MENU'}
+            {isMenuOpen ? (
+              <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="square" viewBox="0 0 24 24">
+                <path d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            ) : (
+              <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="square" viewBox="0 0 24 24">
+                <path d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            )}
           </button>
         </div>
       </div>
 
-      {/* - The mobile sheet drops under the rail with a hard border and an 8px shadow step. */}
+      {/* - Full-Screen Mobile Overlay */}
       {isMenuOpen && (
-        <nav className="flex flex-col border-t-4 border-(--lithos-border) bg-(--lithos-surface) p-6 shadow-[0px_8px_0px_0px_var(--lithos-shadow)] lg:hidden">
+        <nav className="fixed inset-0 z-[-1] pt-32 pb-6 px-6 bg-(--lithos-surface) overflow-y-auto flex flex-col justify-start lg:hidden">
           {links.map((link) => (
             <a
               key={link.label}
               href={link.href}
               onClick={() => setIsMenuOpen(false)}
-              className="mb-6 text-3xl font-black uppercase tracking-tighter text-(--lithos-text) cursor-pointer"
+              className="block w-full text-left text-4xl sm:text-5xl font-black uppercase tracking-tighter text-(--lithos-text) hover:text-(--lithos-accent) mb-8"
             >
               {link.label}
             </a>
@@ -86,7 +95,7 @@ function Navbar() {
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setIsMenuOpen(false)}
-            className="mt-4 border-4 border-(--lithos-border) bg-(--lithos-accent) p-4 text-center text-xl font-black uppercase text-(--lithos-accent-text) shadow-[4px_4px_0px_0px_var(--lithos-shadow)] cursor-pointer"
+            className="mt-auto self-start inline-block border-4 border-(--lithos-border) bg-(--lithos-accent) px-6 py-4 text-left text-2xl font-black uppercase text-(--lithos-accent-text) shadow-[4px_4px_0px_0px_var(--lithos-shadow)] hover:shadow-[6px_6px_0px_0px_var(--lithos-shadow)] active:shadow-[2px_2px_0px_0px_var(--lithos-shadow)] transition-shadow"
           >
             GitHub
           </a>
