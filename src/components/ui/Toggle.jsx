@@ -12,28 +12,28 @@ function Toggle({ checked, onToggle, label = 'Theme Changed' }) {
       onClick={onToggle}
       aria-pressed={checked}
       aria-label={label}
-      className="inline-flex cursor-pointer items-center border-4 border-black bg-white px-2 py-2 text-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-shadow duration-200 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] active:shadow-[0px_0px_0px_0px_rgba(0,0,0,1)]"
+      className="inline-flex cursor-pointer items-center border-2 border-black bg-white px-1 py-1 text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-shadow duration-200 hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] active:shadow-[0px_0px_0px_0px_rgba(0,0,0,1)]"
     >
-      {/* Track math: 80x40 with 4px borders and 4px padding leaves exact travel room. */}
+      {/* Track math (reduced ~1/3): previously 80x40; now approx 24x13 with border/padding scaled down. */}
       <span
-        className={`flex h-10 w-20 items-center border-4 border-black p-1 transition-colors duration-150 ease-out ${
+        className={`flex h-3 w-6 items-center border-2 border-black p-0.5 transition-colors duration-150 ease-out ${
           checked ? 'bg-black' : 'bg-white'
         }`}
       >
-        {/* Thumb math: 24px block + 4px track padding = exact 40px travel on toggle. */}
+        {/* Thumb math (reduced ~1/3): previously 24px -> now ~8px (h-2 w-2) */}
         <span
-          className={`block h-6 w-6 border-4 transition-transform duration-150 ease-out ${
+          className={`block h-2 w-2 border-2 transition-transform duration-150 ease-out ${
             checked
-              ? 'translate-x-10 border-white bg-white'
+              ? 'translate-x-3 border-white bg-white'
               : 'translate-x-0 border-black bg-black'
           }`}
         />
       </span>
-      
+
       {/* Screen-reader label stays outside the visual math. */}
       <span className="sr-only">{label}</span>
     </button>
-  );
+  )
 }
 
 export default Toggle;

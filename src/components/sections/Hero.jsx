@@ -4,6 +4,8 @@
  * - Uses hard borders and offset shadows to read as a built object, not a soft banner.
  * - Keeps the opening rhythm controlled by explicit spacing math and centered containment.
  */
+import { Link } from 'react-router-dom'
+
 function Hero() {
   return (
     <section id="top" className="bg-(--lithos-surface) py-24">
@@ -22,14 +24,12 @@ function Hero() {
 
         {/* - Wrap is intentional: spacing stays explicit when the CTA pair collapses on small screens. */}
         <div className="mt-10 flex flex-col items-center justify-center md:flex-row flex-wrap">
-          <a
-            href="https://github.com/IncredibleStand/Lithos_UI#readme"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            to="/docs"
             className="border-4 border-(--lithos-border) bg-(--lithos-accent) px-8 py-4 font-black uppercase tracking-tighter leading-none text-(--lithos-accent-text) shadow-[6px_6px_0px_0px_var(--lithos-shadow)] transition-shadow duration-150 ease-out hover:shadow-[8px_8px_0px_0px_var(--lithos-shadow)] active:shadow-[2px_2px_0px_0px_var(--lithos-shadow)] cursor-pointer mb-4 md:mb-0 md:mr-6"
           >
             Documentation
-          </a>
+          </Link>
 
           <a
             href="https://github.com/IncredibleStand/Lithos_UI"
