@@ -8,7 +8,8 @@
  * - Component composition (Showroom, NotFound routes)
  */
 
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
+import { useEffect } from 'react'
 import { useTheme } from './core/useTheme'
 import Showroom from './showroom/Index'
 import NotFound from './components/layout/NotFound'
@@ -16,8 +17,18 @@ import DocsLayout from './docs/DocsLayout'
 import Introduction from './docs/pages/Introduction'
 import Installation from './docs/pages/Installation'
 
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
+
 const introTOC = [
-  { id: '#welcome-video', label: 'Welcome Message & Video' },
+  { id: '#welcome-video', label: 'Intro To Lithos UI' },
 ]
 
 const installationTOC = [
@@ -39,6 +50,7 @@ function App() {
     <div className={"min-h-screen bg-(--lithos-bg) text-(--lithos-text) " + (isDarkMode ? 'dark obsidian' : '')}>
       {/* Theme hook is mounted at the app root so accent persistence applies on every route. */}
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Showroom isDarkMode={isDarkMode} toggleObsidian={toggleObsidian} />} />
           <Route path="/docs" element={<DocsLayout isDarkMode={isDarkMode} toggleObsidian={toggleObsidian} toc={introTOC}><Introduction /></DocsLayout>} />

@@ -48,13 +48,13 @@ export default function Installation() {
         Lithos UI is not distributed as an opaque NPM package. It is a collection of highly engineered React components that you copy directly into your codebase. This guarantees you have absolute ownership over the structure, physics, and styling of your application.
       </p>
 
-      <h2 id="base-template" scroll-mt-32 className="mt-12 mb-4 text-2xl font-black uppercase tracking-tight text-(--lithos-text)">1. The Base Template</h2>
+      <h2 id="base-template" className="mt-12 mb-4 text-2xl font-black uppercase tracking-tight text-(--lithos-text)">1. The Base Template</h2>
       <p className="mb-6 text-base md:text-lg text-(--lithos-text) max-w-3xl font-body">
         The fastest way to start is by cloning the official Vite template. It comes pre-configured with Tailwind v4, our dynamic Theme Engine, and the base Obsidian mode CSS.
       </p>
       <CodeViewer code={"# Scaffold using degit\nnpx degit IncredibleStand/Lithos_UI my-app\n\n# OR clone directly\ngit clone https://github.com/IncredibleStand/Lithos_UI my-app\n\ncd my-app\npnpm install\npnpm dev"} language="bash" />
 
-      <h2 id="global-css" scroll-mt-32 className="mt-12 mb-4 text-2xl font-black uppercase tracking-tight text-(--lithos-text)">2. Global CSS Configuration</h2>
+      <h2 id="global-css" className="mt-12 mb-4 text-2xl font-black uppercase tracking-tight text-(--lithos-text)">2. Global CSS Configuration</h2>
       <p className="mb-6 text-base md:text-lg text-(--lithos-text) max-w-3xl font-body">
         If you are integrating into an existing project, you must define the Lithos UI physics engine and root tokens in your global CSS file. This powers the zero-render theme switching.
       </p>
