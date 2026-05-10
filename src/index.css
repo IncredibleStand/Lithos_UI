@@ -7,13 +7,14 @@
  */
 
 @import url('https://fonts.googleapis.com/css2?family=Fragment+Mono:ital,wght@0,400;0,700;0,900;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 @import "tailwindcss";
 
 /* - Tailwind v4 API: Overrides default sans/mono stacks with the brutalist Fragment Mono. */
 @theme {
   --font-sans: 'Fragment Mono', ui-sans-serif, system-ui, sans-serif;
-  --font-body: 'Fragment Mono', ui-sans-serif, system-ui, sans-serif;
   --font-mono: 'Fragment Mono', ui-monospace, monospace;
+  --font-body: 'Roboto', sans-serif;
 }
 
 :root {
@@ -41,7 +42,6 @@ body.obsidian {
   --lithos-bg: #000000;
   --lithos-text: #ffffff;
   --lithos-border: #ffffff;
-  --lithos-accent: #00FF00;
   --lithos-surface: #000000;
   --lithos-muted: rgba(255, 255, 255, 0.3);
   --lithos-shadow: rgba(255, 255, 255, 1);
@@ -87,3 +87,9 @@ body {
     transform: translateY(0);
   }
 }
+
+/* - Hover-activated sidebar scrollbar for docs rails. */
+.sidebar-scroll::-webkit-scrollbar { width: 4px; background-color: transparent; }
+.sidebar-scroll::-webkit-scrollbar-track { background-color: transparent; }
+.sidebar-scroll::-webkit-scrollbar-thumb { background-color: transparent; transition: all 0.2s; }
+.sidebar-scroll:hover::-webkit-scrollbar-thumb { background-color: var(--lithos-accent); }

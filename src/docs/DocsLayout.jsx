@@ -1,0 +1,48 @@
+/**
+ * @fileoverview Lithos UI documentation shell.
+ * - Fixed-pane architecture: sidebars lock, main stage scrolls independently.
+ * - Footer extracted to the bottom of the page, outside the grid.
+ * - Root shell uses flexbox to push footer down when content is short.
+ * - No gap utilities; spacing via px and py utilities on grid items.
+ */
+
+import Navbar from './layout/Navbar'
+import Sidebar from './layout/Sidebar'
+import TableOfContents from './layout/TableOfContents'
+import Footer from '../components/layout/Footer'
+
+/**
+ * DocsLayout component.
+ *
+ * @param {{ children: React.ReactNode, isDarkMode: boolean, toggleObsidian: Function }} props
+ * @returns {React.ReactElement}
+ */
+export default function DocsLayout({ children, isDarkMode, toggleObsidian, toc }) {
+  return (
+    <div className="min-h-screen flex flex-col bg-(--lithos-bg) text-(--lithos-text)">
+      <Navbar isDarkMode={isDarkMode} toggleObsidian={toggleObsidian} />
+
+      <div className="flex-1 w-full max-w-screen-2xl mx-auto grid grid-cols-12 pt-24 items-start">
+        <div className="hidden lg:block lg:col-span-2 sticky top-32">
+          <div className="max-h-[calc(100vh-10rem)] pb-6 overflow-y-auto sidebar-scroll">
+            <Sidebar />
+          </div>
+        </div>
+
+        <main className="col-span-12 lg:col-span-10 xl:col-span-8 px-6 lg:px-12 py-12">
+          {children}
+        </main>
+
+        <div className="hidden xl:block xl:col-span-2 sticky top-32">
+          <div className="max-h-[calc(100vh-10rem)] pb-6 overflow-y-auto sidebar-scroll">
+            <TableOfContents links={toc} />
+          </div>
+        </div>
+      </div>
+
+      <div className="w-full border-t-4 border-(--lithos-border) bg-(--lithos-bg)">
+        <Footer isDarkMode={isDarkMode} onToggleObsidian={toggleObsidian} />
+      </div>
+    </div>
+  )
+}
