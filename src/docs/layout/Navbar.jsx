@@ -6,9 +6,13 @@
 
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { getContrastText as getContrastYIQ } from '../../utils/yiq'
+import { useTheme } from '../../core/useTheme'
 
 function DocsNavbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const { accentColor } = useTheme()
+  const activeColor = accentColor
 
   const [expandedCategory, setExpandedCategory] = useState('Getting Started')
 
@@ -45,22 +49,38 @@ function DocsNavbar() {
           </Link>
         </div>
 
+        {/* - Desktop GitHub CTA */}
+        <a
+          href="https://github.com/IncredibleStand/Lithos_UI"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hidden lg:inline-block ml-auto border-4 border-(--lithos-border) bg-(--lithos-accent) px-5 py-2 text-lg font-black uppercase text-(--lithos-accent-text) shadow-[4px_4px_0px_0px_var(--lithos-shadow)] hover:shadow-[6px_6px_0px_0px_var(--lithos-shadow)] active:shadow-[2px_2px_0px_0px_var(--lithos-shadow)] transition-shadow"
+        >
+          GitHub
+        </a>
+
         {/* - Mobile Action Toggle (Hamburger / X) */}
         <div className="flex lg:hidden items-center">
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="flex items-center justify-center h-12 w-12 text-(--lithos-accent) cursor-pointer transition-opacity hover:opacity-80"
+            style={{ backgroundColor: activeColor }}
+            className="flex items-center justify-center h-10 w-10 border-2 border-(--lithos-border) shadow-[2px_2px_0px_0px_var(--lithos-shadow)] cursor-pointer transition-all duration-75 active:shadow-none active:translate-x-0.5 active:translate-y-0.5"
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           >
-            {isMenuOpen ? (
-              <svg className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="square" viewBox="0 0 24 24">
+            <svg 
+              className="w-6 h-6" 
+              fill="none" 
+              stroke={getContrastYIQ(activeColor)} 
+              strokeWidth="3" 
+              strokeLinecap="square" 
+              viewBox="0 0 24 24"
+            >
+              {isMenuOpen ? (
                 <path d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            ) : (
-              <svg className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="square" viewBox="0 0 24 24">
+              ) : (
                 <path d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            )}
+              )}
+            </svg>
           </button>
         </div>
       </div>

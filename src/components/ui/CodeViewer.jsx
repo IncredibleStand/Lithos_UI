@@ -12,8 +12,10 @@
 
 import { useToast } from '../../core/hooks/useToast'
 import { useTheme } from '../../core/useTheme'
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
+import { okaidia } from 'react-syntax-highlighter/dist/esm/styles/prism'
 
-export default function CodeViewer({ code, language = 'jsx' }) {
+export default function CodeViewer({ code, language = 'jsx', showControls = false }) {
   const toast = useToast()
   const { accentColor } = useTheme()
 
@@ -48,9 +50,19 @@ export default function CodeViewer({ code, language = 'jsx' }) {
   return (
     <div className="border-4 border-(--lithos-border) bg-(--lithos-bg) mb-8 relative">
       <div className="border-b-4 border-(--lithos-border) bg-(--lithos-surface) px-4 py-2 flex justify-between items-center">
-        <p className="font-mono text-xs font-black uppercase tracking-widest text-(--lithos-text)">
-          {language}
-        </p>
+        <div className="flex items-center">
+          {showControls ? (
+            <div className="flex items-center">
+              <div className="mr-2 h-4 w-4 border-2 border-(--lithos-border) bg-(--lithos-accent)" aria-hidden="true" />
+              <div className="mr-2 h-4 w-4 border-2 border-(--lithos-border) bg-(--lithos-accent)" aria-hidden="true" />
+              <div className="h-4 w-4 border-2 border-(--lithos-border) bg-(--lithos-accent)" aria-hidden="true" />
+            </div>
+          ) : (
+            <p className="text-xs font-black uppercase tracking-widest text-(--lithos-text) font-code">
+              {language}
+            </p>
+          )}
+        </div>
 
         <button
           type="button"
@@ -63,9 +75,23 @@ export default function CodeViewer({ code, language = 'jsx' }) {
         </button>
       </div>
 
-      <pre className="overflow-x-auto p-4 md:p-6 text-sm font-code text-(--lithos-text) m-0">
-        <code style={{ fontFamily: 'var(--font-code)' }}>{code}</code>
-      </pre>
+      <div className="overflow-x-auto p-4 text-sm bg-[#0a0a0a]">
+        <SyntaxHighlighter
+          language="jsx"
+          style={okaidia}
+          customStyle={{
+            background: 'transparent',
+            padding: '0',
+            margin: '0',
+            fontFamily: 'var(--font-code)',
+          }}
+          codeTagProps={{
+            style: { fontFamily: 'inherit' },
+          }}
+        >
+          {code}
+        </SyntaxHighlighter>
+      </div>
     </div>
   )
 }

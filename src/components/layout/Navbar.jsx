@@ -6,6 +6,8 @@
  */
 
 import { useState } from 'react'
+import { getContrastText as getContrastYIQ } from '../../utils/yiq'
+import { useTheme } from '../../core/useTheme'
 
 const links = [
   { label: 'Features', href: '#features' },
@@ -16,6 +18,8 @@ const links = [
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const { accentColor } = useTheme()
+  const activeColor = accentColor
 
   return (
     <header className="fixed top-0 z-50 w-full border-b-2 border-(--lithos-border) bg-(--lithos-surface)">
@@ -61,18 +65,17 @@ function Navbar() {
         <div className="flex lg:hidden">
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="flex items-center justify-center h-12 w-12 text-(--lithos-accent) cursor-pointer transition-opacity hover:opacity-80"
+            style={{ backgroundColor: activeColor }}
+            className="flex items-center justify-center h-10 w-10 border-2 border-(--lithos-border) shadow-[2px_2px_0px_0px_var(--lithos-shadow)] cursor-pointer transition-all duration-75 active:shadow-none active:translate-x-0.5 active:translate-y-0.5"
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           >
-            {isMenuOpen ? (
-              <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="square" viewBox="0 0 24 24">
+            <svg className="w-6 h-6" fill="none" stroke={getContrastYIQ(activeColor)} strokeWidth="3" strokeLinecap="square" viewBox="0 0 24 24">
+              {isMenuOpen ? (
                 <path d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            ) : (
-              <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="square" viewBox="0 0 24 24">
+              ) : (
                 <path d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            )}
+              )}
+            </svg>
           </button>
         </div>
       </div>
