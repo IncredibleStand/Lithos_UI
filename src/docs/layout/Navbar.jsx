@@ -6,13 +6,9 @@
 
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { getContrastText as getContrastYIQ } from '../../utils/yiq'
-import { useTheme } from '../../core/useTheme'
 
 function DocsNavbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const { accentColor } = useTheme()
-  const activeColor = accentColor
 
   const [expandedCategory, setExpandedCategory] = useState('Getting Started')
 
@@ -67,9 +63,8 @@ function DocsNavbar() {
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           >
             <svg 
-              className="w-6 h-6" 
+              className="w-6 h-6 stroke-(--lithos-accent-text)" 
               fill="none" 
-              stroke={getContrastYIQ(activeColor)} 
               strokeWidth="3" 
               strokeLinecap="square" 
               viewBox="0 0 24 24"
@@ -94,7 +89,7 @@ function DocsNavbar() {
               <div key={group.category} className="mb-8">
                 <button
                   onClick={() => setExpandedCategory(expandedCategory === group.category ? null : group.category)}
-                  className="flex w-full items-center justify-between border-b-4 border-(--lithos-border) pb-2 mb-4 text-left text-3xl sm:text-4xl font-black uppercase tracking-tighter text-(--lithos-text) cursor-pointer hover:text-(--lithos-accent) transition-colors"
+                  className="flex w-full items-center justify-between border-b-2 border-(--lithos-border) pb-2 mb-4 text-left text-3xl sm:text-4xl font-black uppercase tracking-tighter text-(--lithos-text) cursor-pointer"
                 >
                   {group.category}
                   <span className="text-3xl text-(--lithos-accent)">{expandedCategory === group.category ? '-' : '+'}</span>
@@ -108,7 +103,7 @@ function DocsNavbar() {
                         key={link.label}
                         href={link.href}
                         onClick={() => setIsMenuOpen(false)}
-                        className="block w-full text-left text-xl sm:text-2xl font-bold uppercase tracking-tight text-(--lithos-text) opacity-80 hover:opacity-100 hover:text-(--lithos-accent) mb-4 cursor-pointer transition-colors duration-150"
+                        className="block w-full text-left text-xl sm:text-2xl font-bold uppercase tracking-tight text-(--lithos-text) opacity-80 hover:opacity-100 hover:text-(--lithos-text) hover:translate-x-2 mb-4 cursor-pointer transition-all duration-150"
                       >
                         {link.label}
                       </a>
