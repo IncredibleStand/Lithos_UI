@@ -48,7 +48,7 @@ export default function App() {
         </h1>
 
         {/* - Copy stays inside the hero mass; 24px top margin preserves the outer shell. */}
-        <p className="mt-6 text-2xl font-bold leading-none text-(--lithos-text) md:text-3xl">
+        <p className="mt-6 text-2xl font-bold leading-none text-(--lithos-text) md:text-3xl font-body">
           Lithos UI is a neo-brutalist React component library engineered with absolute
           structural integrity.
         </p>
@@ -57,7 +57,7 @@ export default function App() {
         <div className="mt-10 flex flex-col items-center justify-center md:flex-row flex-wrap">
           <Link
             to="/docs"
-            className="border-4 border-(--lithos-border) bg-(--lithos-accent) px-8 py-4 font-black uppercase tracking-tighter leading-none text-(--lithos-accent-text) shadow-[6px_6px_0px_0px_var(--lithos-shadow)] transition-shadow duration-150 ease-out hover:shadow-[8px_8px_0px_0px_var(--lithos-shadow)] active:shadow-[2px_2px_0px_0px_var(--lithos-shadow)] cursor-pointer mb-4 md:mb-0 md:mr-6"
+            className="border-2 border-(--lithos-border) bg-(--lithos-accent) px-8 py-4 font-black uppercase tracking-tighter leading-none text-(--lithos-accent-text) shadow-[2px_2px_0px_0px_var(--lithos-shadow)] lithos-click cursor-pointer mb-4 md:mb-0 md:mr-6"
           >
             Documentation
           </Link>
@@ -66,7 +66,7 @@ export default function App() {
             href="https://github.com/IncredibleStand/Lithos_UI"
             target="_blank"
             rel="noopener noreferrer"
-            className="border-4 border-(--lithos-border) bg-(--lithos-surface) px-8 py-4 font-black uppercase tracking-tighter leading-none text-(--lithos-text) shadow-[6px_6px_0px_0px_var(--lithos-shadow)] transition-shadow duration-150 ease-out hover:shadow-[8px_8px_0px_0px_var(--lithos-shadow)] active:shadow-[2px_2px_0px_0px_var(--lithos-shadow)] cursor-pointer mb-4 md:mb-0 md:mr-6"
+            className="border-4 border-(--lithos-border) bg-(--lithos-surface) px-8 py-4 font-black uppercase tracking-tighter leading-none text-(--lithos-text) shadow-[4px_4px_0px_0px_var(--lithos-shadow)] hover:shadow-[4px_4px_0px_0px_var(--lithos-shadow)] lithos-click cursor-pointer mb-4 md:mb-0 md:mr-6"
           >
             View on GitHub
           </a>
@@ -74,7 +74,7 @@ export default function App() {
         </div>
 
         {/* - Single mass showcase: CodeViewer is the only structural object here. */}
-        <div className="mt-20 mx-auto w-full max-w-4xl shadow-[12px_12px_0px_0px_var(--lithos-accent)]">
+        <div className="mt-20 mx-auto w-full max-w-4xl shadow-[6px_6px_0px_0px_var(--lithos-accent)]">
           <CodeViewer code={appShowcaseCode} showControls={true} />
         </div>
       </div>

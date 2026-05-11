@@ -52,7 +52,7 @@ function FAQ() {
             return (
               <div
                 key={faq.question}
-                className={index === 0 ? 'border-4 border-(--lithos-border) bg-(--lithos-surface) transition-all duration-150 ease-out' : 'mt-6 border-4 border-(--lithos-border) bg-(--lithos-surface) transition-all duration-150 ease-out'}
+                className={index === 0 ? 'border-2 border-(--lithos-border) bg-(--lithos-surface) transition-all duration-150 ease-out' : 'mt-6 border-2 border-(--lithos-border) bg-(--lithos-surface) transition-all duration-150 ease-out'}
               >
                 {/* - Open/closed states shift color and mass, not geometry. */}
                 <button
@@ -61,8 +61,8 @@ function FAQ() {
                   aria-expanded={isOpen}
                   className={
                     isOpen
-                      ? 'flex w-full items-center justify-between bg-(--lithos-accent) px-6 py-6 text-left shadow-[6px_6px_0px_0px_var(--lithos-shadow)] transition-all duration-150 ease-out cursor-pointer'
-                      : 'group flex w-full items-center justify-between bg-(--lithos-surface) hover:bg-(--lithos-accent) px-6 py-6 text-left shadow-[6px_6px_0px_0px_var(--lithos-shadow)] transition-all duration-150 ease-out hover:shadow-[10px_10px_0px_0px_var(--lithos-shadow)] active:shadow-[2px_2px_0px_0px_var(--lithos-shadow)] cursor-pointer'
+                      ? 'flex w-full items-center justify-between bg-(--lithos-accent) px-6 py-6 text-left transition-all duration-150 ease-out cursor-pointer'
+                      : 'group flex w-full items-center justify-between bg-(--lithos-surface) hover:bg-(--lithos-accent) px-6 py-6 text-left shadow-[4px_4px_0px_0px_var(--lithos-shadow)] transition-all duration-150 ease-out hover:shadow-[6px_6px_0px_0px_var(--lithos-shadow)] active:shadow-[2px_2px_0px_0px_var(--lithos-shadow)] cursor-pointer'
                   }
                 >
                   <span className={`pr-6 text-2xl font-black uppercase tracking-tighter leading-none md:text-3xl ${isOpen ? 'text-(--lithos-accent-text)' : 'text-(--lithos-text) group-hover:text-(--lithos-accent-text) transition-colors'}`}>

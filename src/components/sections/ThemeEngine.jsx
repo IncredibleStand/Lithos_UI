@@ -37,7 +37,7 @@ function ThemeEngine() {
           Test drive the global design tokens. One variable changes everything.
         </p>
 
-        <div className="mt-12 w-full border-8 border-(--lithos-border) bg-(--lithos-bg) p-6 sm:p-10 shadow-[8px_8px_0px_0px_var(--lithos-shadow)] mb-12">
+        <div className="mt-12 w-full border-2 border-(--lithos-border) bg-(--lithos-bg) p-6 sm:p-10 shadow-[6px_6px_0px_0px_var(--lithos-shadow)] mb-12">
           <div className="flex flex-wrap justify-center -m-2 sm:-m-4">
           {themes.map((theme) => {
             const isActive = accentColor === theme.hex
@@ -50,7 +50,7 @@ function ThemeEngine() {
                 onClick={() => handleThemeChange(theme.hex)}
                 aria-label={`Activate ${theme.name} theme`}
                 title={theme.name}
-                className={`m-2 h-16 w-[calc(50%-1rem)] sm:m-4 sm:h-24 sm:w-24 shrink-0 border-4 border-(--lithos-border) flex items-center justify-center transition-shadow duration-150 ease-out cursor-pointer ${isActive ? 'shadow-[2px_2px_0px_0px_var(--lithos-shadow)]' : 'shadow-[4px_4px_0px_0px_var(--lithos-shadow)] hover:shadow-[6px_6px_0px_0px_var(--lithos-shadow)] active:shadow-[2px_2px_0px_0px_var(--lithos-shadow)]'}`}
+                className={`m-2 h-16 w-[calc(50%-1rem)] sm:m-4 sm:h-24 sm:w-24 shrink-0 border-2 border-(--lithos-border) flex items-center justify-center lithos-click ${isActive ? 'shadow-[2px_2px_0px_0px_var(--lithos-shadow)]' : 'shadow-[4px_4px_0px_0px_var(--lithos-shadow)] hover:shadow-[6px_6px_0px_0px_var(--lithos-shadow)]'}`}
                 style={{
                   backgroundColor: theme.hex,
                 }}
@@ -62,7 +62,7 @@ function ThemeEngine() {
 
           {/* - Custom picker keeps the tile geometry fixed while the input floats invisibly on top. */}
           <div
-            className={`relative m-2 h-16 w-[calc(50%-1rem)] sm:m-4 sm:h-24 sm:w-24 shrink-0 border-4 border-(--lithos-border) bg-(--lithos-surface) transition-all duration-150 ease-out cursor-pointer group ${!themes.some((t) => t.hex === accentColor) ? 'shadow-[2px_2px_0px_0px_var(--lithos-shadow)]' : 'shadow-[6px_6px_0px_0px_var(--lithos-shadow)] hover:shadow-[10px_10px_0px_0px_var(--lithos-shadow)] active:shadow-[2px_2px_0px_0px_var(--lithos-shadow)]'}`}
+            className={`relative m-2 h-16 w-[calc(50%-1rem)] sm:m-4 sm:h-24 sm:w-24 shrink-0 border-2 border-(--lithos-border) bg-(--lithos-surface) lithos-click group ${!themes.some((t) => t.hex === accentColor) ? 'shadow-[2px_2px_0px_0px_var(--lithos-shadow)]' : 'shadow-[4px_4px_0px_0px_var(--lithos-shadow)] hover:shadow-[6px_6px_0px_0px_var(--lithos-shadow)]'}`}
             style={{
               backgroundColor: !themes.some((t) => t.hex === accentColor)
                 ? accentColor
@@ -99,7 +99,7 @@ function ThemeEngine() {
             <button
               type="button"
               onClick={handleReset}
-              className="border-4 border-(--lithos-border) bg-(--lithos-surface) px-4 py-3 sm:px-8 sm:py-4 text-sm sm:text-base font-black uppercase tracking-tighter leading-none text-(--lithos-text) shadow-[6px_6px_0px_0px_var(--lithos-shadow)] transition-all duration-150 ease-out hover:shadow-[10px_10px_0px_0px_var(--lithos-shadow)] active:shadow-[2px_2px_0px_0px_var(--lithos-shadow)] cursor-pointer"
+              className="border-4 border-(--lithos-border) bg-(--lithos-surface) px-4 py-3 sm:px-8 sm:py-4 text-sm sm:text-base font-black uppercase tracking-tighter leading-none text-(--lithos-text) shadow-[6px_6px_0px_0px_var(--lithos-shadow)] hover:shadow-[10px_10px_0px_0px_var(--lithos-shadow)] lithos-click"
             >
               Reset to Default Theme
             </button>
