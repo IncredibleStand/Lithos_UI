@@ -6,8 +6,6 @@
  */
 
 import { useState } from 'react'
-import { getContrastText as getContrastYIQ } from '../../utils/yiq'
-import { useTheme } from '../../core/useTheme'
 
 const links = [
   { label: 'Features', href: '#features' },
@@ -18,8 +16,6 @@ const links = [
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const { accentColor } = useTheme()
-  const activeColor = accentColor
 
   return (
     <header className="fixed top-0 z-50 w-full border-b-2 border-(--lithos-border) bg-(--lithos-surface)">
@@ -30,7 +26,7 @@ function Navbar() {
         <div className="flex items-center justify-start lg:w-1/3">
           <a
             href="#top"
-            className="bg-(--lithos-accent) px-5 py-3 font-black tracking-tighter leading-none text-(--lithos-accent-text) lithos-click"
+            className="border-2 border-(--lithos-border) bg-(--lithos-accent) px-5 py-3 font-black tracking-tighter leading-none text-(--lithos-accent-text) lithos-click cursor-pointer"
           >
             Lithos UI
           </a>
@@ -55,7 +51,7 @@ function Navbar() {
             href="https://github.com/IncredibleStand/Lithos_UI"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-(--lithos-accent) px-5 py-3 font-black tracking-tighter leading-none text-(--lithos-accent-text) lithos-click"
+            className="border-2 border-(--lithos-border) bg-(--lithos-accent) px-5 py-3 font-black tracking-tighter leading-none text-(--lithos-accent-text) lithos-click cursor-pointer"
           >
             GitHub
           </a>
@@ -68,7 +64,13 @@ function Navbar() {
             className="flex items-center justify-center h-10 w-10 border-2 border-(--lithos-border) bg-(--lithos-accent) shadow-[2px_2px_0px_0px_var(--lithos-shadow)] lithos-click cursor-pointer"
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           >
-            <svg className="w-6 h-6" fill="none" stroke={getContrastYIQ(activeColor)} strokeWidth="3" strokeLinecap="square" viewBox="0 0 24 24">
+            <svg 
+              className="w-6 h-6 stroke-(--lithos-accent-text)" 
+              fill="none" 
+              strokeWidth="3" 
+              strokeLinecap="square" 
+              viewBox="0 0 24 24"
+            >
               {isMenuOpen ? (
                 <path d="M6 18L18 6M6 6l12 12" />
               ) : (
@@ -87,7 +89,7 @@ function Navbar() {
               key={link.label}
               href={link.href}
               onClick={() => setIsMenuOpen(false)}
-              className="block w-full text-left text-4xl sm:text-5xl font-black uppercase tracking-tighter text-(--lithos-text) hover:text-(--lithos-accent) mb-8"
+              className="block w-full text-left text-4xl sm:text-5xl font-black uppercase tracking-tighter text-(--lithos-text) opacity-80 hover:opacity-100 hover:text-(--lithos-text) hover:translate-x-2 mb-8 cursor-pointer transition-all duration-150"
             >
               {link.label}
             </a>
@@ -97,7 +99,7 @@ function Navbar() {
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setIsMenuOpen(false)}
-            className="mt-auto self-start inline-block px-6 py-4 text-left text-2xl font-black uppercase text-(--lithos-accent-text) lithos-click"
+            className="mt-auto self-start inline-block border-4 border-(--lithos-border) bg-(--lithos-accent) px-6 py-4 text-left text-2xl font-black uppercase text-(--lithos-accent-text) shadow-[4px_4px_0px_0px_var(--lithos-shadow)] hover:shadow-[6px_6px_0px_0px_var(--lithos-shadow)] lithos-click cursor-pointer"
           >
             GitHub
           </a>
