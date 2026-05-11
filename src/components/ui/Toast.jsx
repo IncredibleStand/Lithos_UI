@@ -63,14 +63,14 @@ const ToastItem = ({ toast, onRemove }) => {
           background-color: ${bgColor} !important;
           color: ${textColor} !important;
           border-color: ${textColor} !important;
+          --lithos-shadow: ${textColor} !important;
         }
       `}</style>
       
-      {/* - 6px border + 8px shadow turns the alert into a hard plaque, not a soft card. */}
       {/* - Stack spacing uses explicit margins so each toast keeps its own exit path. */}
       <div 
         role="alert"
-        className={`toast-override-${id} pointer-events-auto border-[6px] shadow-[8px_8px_0px_0px_var(--lithos-shadow)] p-4 sm:p-6 mb-6 w-full flex flex-row items-start transition-all duration-300 ease-out animate-[slide-up_0.3s_ease-out_forwards]`}
+        className={`toast-override-${id} pointer-events-auto border-2 p-4 sm:p-6 mb-6 w-full flex flex-row items-start animate-[slide-up_0.3s_ease-out_forwards]`}
       >
         <div className="flex-1 mr-4">
           {title && <h4 className="font-black text-xl uppercase tracking-tighter leading-none mb-3 m-0">{title}</h4>}
@@ -80,7 +80,7 @@ const ToastItem = ({ toast, onRemove }) => {
         {/* - Close control keeps the same hard-edge language as the card. */}
         <button 
           onClick={onRemove}
-          className="ml-4 shrink-0 p-3 border-4 border-inherit bg-transparent cursor-pointer transition-transform duration-150 ease-out hover:scale-110 active:scale-95 shadow-[4px_4px_0px_0px_var(--lithos-shadow)] hover:shadow-[6px_6px_0px_0px_var(--lithos-shadow)] active:shadow-[2px_2px_0px_0px_var(--lithos-shadow)]"
+          className="ml-4 shrink-0 p-3 bg-transparent lithos-click"
           aria-label="Close notification"
           style={{ borderColor: textColor }}
         >

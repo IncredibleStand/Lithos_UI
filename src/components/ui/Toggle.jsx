@@ -12,7 +12,7 @@ function Toggle({ checked, onToggle, label = 'Theme Changed' }) {
       onClick={onToggle}
       aria-pressed={checked}
       aria-label={label}
-      className="inline-flex cursor-pointer items-center border-2 border-black bg-white px-1 py-1 text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-shadow duration-200 hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] active:shadow-[0px_0px_0px_0px_rgba(0,0,0,1)]"
+      className="inline-flex cursor-pointer items-center border-2 border-black bg-white px-1 py-1 text-black transition-shadow duration-200"
     >
       {/* Track math (reduced ~1/3): previously 80x40; now approx 24x13 with border/padding scaled down. */}
       <span

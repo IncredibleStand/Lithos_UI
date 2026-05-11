@@ -47,8 +47,8 @@ function Pricing() {
                 key={tier.key}
                 className={
                   highlighted
-                    ? 'm-4 flex w-[calc(100%-2rem)] max-w-2xl flex-col border-4 border-(--lithos-border) bg-(--lithos-accent) p-6 sm:p-10 shadow-[10px_10px_0px_0px_var(--lithos-shadow)] transition-shadow duration-150 ease-out hover:shadow-[14px_14px_0px_0px_var(--lithos-shadow)] active:shadow-[4px_4px_0px_0px_var(--lithos-shadow)] motion-safe:animate-[brutalist-pop_400ms_cubic-bezier(0.175,0.885,0.32,1.275)]'
-                    : 'm-4 flex w-[calc(100%-2rem)] max-w-2xl flex-col border-4 border-(--lithos-border) bg-(--lithos-surface) p-6 sm:p-10 shadow-[6px_6px_0px_0px_var(--lithos-shadow)] transition-shadow duration-150 ease-out hover:shadow-[10px_10px_0px_0px_var(--lithos-shadow)] active:shadow-[2px_2px_0px_0px_var(--lithos-shadow)] motion-safe:animate-[slide-up_400ms_cubic-bezier(0.175,0.885,0.32,1.275)]'
+                    ? 'm-4 flex w-[calc(100%-2rem)] max-w-2xl flex-col border-2 border-(--lithos-border) bg-(--lithos-accent) p-6 sm:p-10 shadow-[6px_6px_0px_0px_var(--lithos-shadow)] hover:shadow-[8px_8px_0px_0px_var(--lithos-shadow)] motion-safe:animate-[brutalist-pop_400ms_cubic-bezier(0.175,0.885,0.32,1.275)]'
+                    : 'm-4 flex w-[calc(100%-2rem)] max-w-2xl flex-col border-2 border-(--lithos-border) bg-(--lithos-surface) p-6 sm:p-10 shadow-[6px_6px_0px_0px_var(--lithos-shadow)] hover:shadow-[8px_8px_0px_0px_var(--lithos-shadow)] motion-safe:animate-[slide-up_400ms_cubic-bezier(0.175,0.885,0.32,1.275)]'
                 }
               >
                 {/* - Highlighted tier gets the bigger shadow offset so the primary offer carries more mass. */}
@@ -81,8 +81,8 @@ function Pricing() {
                     href="#top"
                     className={
                       highlighted
-                        ? 'inline-flex border-4 border-(--lithos-accent-text) bg-(--lithos-accent-text) px-4 py-3 sm:px-6 sm:py-4 font-black uppercase tracking-tighter leading-none text-(--lithos-accent) transition-opacity duration-150 ease-out cursor-pointer'
-                        : 'inline-flex border-4 border-(--lithos-border) bg-(--lithos-surface) px-4 py-3 sm:px-6 sm:py-4 font-black uppercase tracking-tighter leading-none text-(--lithos-text) shadow-[6px_6px_0px_0px_var(--lithos-shadow)] transition-shadow duration-150 ease-out hover:shadow-[10px_10px_0px_0px_var(--lithos-shadow)] active:shadow-[2px_2px_0px_0px_var(--lithos-shadow)] cursor-pointer'
+                        ? 'inline-flex border-2 border-(--lithos-) bg-(--lithos-accent-text) px-4 py-3 sm:px-6 sm:py-4 font-black uppercase tracking-tighter leading-none text-(--lithos-accent) lithos-click'
+                        : 'inline-flex border-2 border-(--lithos-border) bg-(--lithos-surface) px-4 py-3 sm:px-6 sm:py-4 font-black uppercase tracking-tighter leading-none text-(--lithos-text) lithos-click'
                     }
                   >
                     {tier.cta}

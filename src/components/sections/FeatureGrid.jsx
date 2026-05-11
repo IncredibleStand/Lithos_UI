@@ -58,7 +58,7 @@ function FeatureGrid() {
           {features.map((feature) => (
             <article
               key={feature.title}
-              className="group relative overflow-hidden m-4 w-full sm:w-[calc(50%-2rem)] lg:w-[calc(33.333%-2rem)] border-4 border-(--lithos-border) bg-(--lithos-surface) p-6 shadow-[6px_6px_0px_0px_var(--lithos-shadow)] transition-all duration-150 ease-out hover:shadow-[10px_10px_0px_0px_var(--lithos-shadow)] active:shadow-[2px_2px_0px_0px_var(--lithos-shadow)] cursor-pointer"
+              className="group relative overflow-hidden m-4 w-full sm:w-[calc(50%-2rem)] lg:w-[calc(33.333%-2rem)] border-4 border-(--lithos-border) bg-(--lithos-surface) p-6 lithos-click"
             >
               {/* - The scale wipe is a hard plane, not a fade; the card stays geometrically intact. */}
               <div className="absolute inset-0 z-0 origin-top-left scale-0 bg-(--lithos-accent) transition-transform duration-300 ease-out group-hover:scale-100" aria-hidden="true" />
@@ -70,7 +70,7 @@ function FeatureGrid() {
                 <h3 className="mt-6 text-2xl font-black uppercase tracking-tighter leading-none text-(--lithos-text) group-hover:text-(--lithos-accent-text) transition-colors duration-300">
                   {feature.title}
                 </h3>
-                <p className="mt-4 text-base font-medium leading-none text-(--lithos-text) group-hover:text-(--lithos-accent-text) transition-colors duration-300">{feature.description}</p>
+                <p className="mt-4 text-base font-medium leading-none text-(--lithos-text) group-hover:text-(--lithos-accent-text) transition-colors duration-300 font-body">{feature.description}</p>
               </div>
             </article>
           ))}

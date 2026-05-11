@@ -18,6 +18,7 @@
   --font-body: 'Roboto', sans-serif;
 }
 
+
 :root {
   /* - Default Light Theme: High contrast, heavy white/black balance. */
   --lithos-bg: #ffffff;
@@ -94,3 +95,9 @@ body {
 .sidebar-scroll::-webkit-scrollbar-track { background-color: transparent; }
 .sidebar-scroll::-webkit-scrollbar-thumb { background-color: transparent; transition: all 0.2s; }
 .sidebar-scroll:hover::-webkit-scrollbar-thumb { background-color: var(--lithos-accent); }
+
+@layer utilities {
+  .lithos-click {
+    @apply border-2 border-(--lithos-border) shadow-[2px_2px_0px_0px_var(--lithos-shadow)] hover:shadow-[4px_4px_0px_0px_var(--lithos-shadow)] cursor-pointer transition-all duration-75 active:shadow-none active:translate-x-0.5 active:translate-y-0.5;
+  }
+}
