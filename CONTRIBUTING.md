@@ -20,7 +20,8 @@ This is the most critical rule of the repository.
 
 - **Hard Edges:** No rounded corners (`rounded-none` is the default).
 - **High Contrast:** All color pairings must pass YIQ mathematical contrast checks.
-- **Physical Mass:** Every component must read as a "slab" with a solid shadow offset (e.g., `shadow-[8px_8px_0px_0px]`).
+- **Standardized Mass:** Every component must read as a "slab". We enforce a strict `2px` border and `shadow-[2px_2px_0px_0px]` baseline for all interactive elements to maintain a cohesive, professional system weight.
+- **Interactive Physics:** You MUST use the global `.lithos-click` utility class for all buttons. Do not hardcode redundant hover, active, or transition states. This token guarantees our standardized "Hard-Drop" mechanical click.
 - **No Soft Shadows:** Blur values in `box-shadow` must remain at `0px`.
 
 ## 4. Workflow
