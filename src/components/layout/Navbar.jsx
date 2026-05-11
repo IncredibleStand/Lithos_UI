@@ -65,8 +65,7 @@ function Navbar() {
         <div className="flex lg:hidden">
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            style={{ backgroundColor: activeColor }}
-            className="flex items-center justify-center h-10 w-10 border-2 border-(--lithos-border) shadow-[2px_2px_0px_0px_var(--lithos-shadow)] cursor-pointer transition-all duration-75 active:shadow-none active:translate-x-0.5 active:translate-y-0.5"
+            className="flex items-center justify-center h-10 w-10 border-2 border-(--lithos-border) bg-(--lithos-accent) shadow-[2px_2px_0px_0px_var(--lithos-shadow)] cursor-pointer transition-all duration-75 active:shadow-none active:translate-x-0.5 active:translate-y-0.5"
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           >
             <svg className="w-6 h-6" fill="none" stroke={getContrastYIQ(activeColor)} strokeWidth="3" strokeLinecap="square" viewBox="0 0 24 24">

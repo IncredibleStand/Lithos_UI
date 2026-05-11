@@ -63,8 +63,7 @@ function DocsNavbar() {
         <div className="flex lg:hidden items-center">
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            style={{ backgroundColor: activeColor }}
-            className="flex items-center justify-center h-10 w-10 border-2 border-(--lithos-border) shadow-[2px_2px_0px_0px_var(--lithos-shadow)] cursor-pointer transition-all duration-75 active:shadow-none active:translate-x-0.5 active:translate-y-0.5"
+            className="flex items-center justify-center h-10 w-10 border-2 border-(--lithos-border) bg-(--lithos-accent) shadow-[2px_2px_0px_0px_var(--lithos-shadow)] cursor-pointer transition-all duration-75 active:shadow-none active:translate-x-0.5 active:translate-y-0.5"
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           >
             <svg 
