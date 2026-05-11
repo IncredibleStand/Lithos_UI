@@ -23,6 +23,10 @@ When you inject a custom HEX code, the engine calculates the perceived biologica
 
 CSS specificity wars ruin dynamic themes. Lithos UI utilizes a Javascript-injected Universal Override block (`<style>`) targeting `*, :root, .dark, .obsidian` with `!important` flags. This guarantees that user-selected dynamic tokens completely overpower hardcoded Tailwind classes, ensuring instant, glitch-free repaints.
 
+### 4. Global Physics Tokens
+
+To prevent Tailwind class bloat ("DRY" architecture), Lithos UI packages its mechanical interactions into global CSS utility tokens. By applying the `.lithos-click` class to any button, the element instantly inherits the system's strict `2px` borders, brutalist `2px` shadows, and our signature zero-latency "Hard-Drop" click physics. No redundant transition or active states required.
+
 ---
 
 ## Installation
@@ -53,6 +57,8 @@ The entire visual weight of the library is controlled by these 7 variables. Modi
   --lithos-shadow: rgba(0,0,0,1);/* Brutalist shadow offset */
 }
 ```
+
+*(Note: Interactive physics and structural weight are handled via the `@layer utilities` block in `index.css`, primarily through the `.lithos-click` token.)*
 
 ## Obsidian Mode (Dark Theme)
 

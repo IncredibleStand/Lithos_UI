@@ -7,9 +7,9 @@ export default function Sidebar() {
     const isActive = location.pathname === path
     const baseClass = "block px-3 py-1.5 text-xs font-bold transition-colors duration-150 ease-out"
 
-    return isActive
-      ? `${baseClass} bg-(--lithos-accent) text-(--lithos-accent-text)`
-      : `${baseClass} hover:bg-neutral-900/50 dark:hover:bg-neutral-900/50`
+  return isActive
+      ? `${baseClass} border-(--lithos-accent) bg-(--lithos-accent) text-(--lithos-accent-text)`
+      : `${baseClass} border-transparent text-(--lithos-text) hover:bg-[color-mix(in_srgb,var(--lithos-text)_5%,transparent)] hover:text-(--lithos-text)`
   }
 
   return (
