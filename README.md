@@ -66,4 +66,4 @@ Lithos UI includes a native Dark Mode trigger. Simply apply the `.obsidian` clas
 
 ### License
 
-Lithos UI is free for unlimited commercial and personal projects. You may not repackage, resell, or redistribute the component source code as your own UI kit or template. See LICENSE.md for full details.
+Lithos UI is free for unlimited commercial and personal projects. See LICENSE.md for full details.
