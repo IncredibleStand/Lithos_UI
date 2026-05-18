@@ -39,7 +39,7 @@ export default function App() {
   );
 }`;
   return (
-    <section id="top" className="bg-(--lithos-surface) py-24">
+    <section id="top" className="bg-(--lithos-surface) py-12 md:py-24">
       {/* - 96px shell: 24 * 4px = the opening rhythm unit. */}
       {/* - Centered lane: keeps the slab width inside the page’s vertical cadence. */}
       <div className="mx-auto max-w-6xl px-6 text-center">
