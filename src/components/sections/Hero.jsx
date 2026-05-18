@@ -48,7 +48,7 @@ export default function App() {
         </h1>
 
         {/* - Copy stays inside the hero mass; 24px top margin preserves the outer shell. */}
-        <p className="mt-6 text-2xl font-bold leading-none text-(--lithos-text) md:text-3xl font-body">
+        <p className="mt-6 text-2xl leading-none text-(--lithos-text) md:text-3xl font-body">
           Lithos UI is a neo-brutalist React component library engineered with absolute
           structural integrity.
         </p>
