@@ -38,7 +38,7 @@ function FAQ() {
   }
 
   return (
-    <section id="faq" className="bg-(--lithos-surface) py-24">
+    <section id="faq" className="bg-(--lithos-surface) py-12 md:py-24">
       <div className="mx-auto max-w-5xl px-6">
         <h2 className="text-4xl font-black uppercase tracking-tighter leading-none text-center text-(--lithos-text) md:text-5xl">
           Frequently Asked Questions

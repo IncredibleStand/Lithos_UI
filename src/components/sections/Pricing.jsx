@@ -27,7 +27,7 @@ const plans = [
 
 function Pricing() {
   return (
-    <section id="pricing" className="bg-(--lithos-bg) py-24">
+    <section id="pricing" className="bg-(--lithos-bg) py-12 md:py-24">
       <div className="mx-auto max-w-6xl px-6">
         <h2 className="text-4xl font-black uppercase tracking-tighter leading-none text-center text-(--lithos-text) md:text-5xl">
           Zero Cost. Build Forever.

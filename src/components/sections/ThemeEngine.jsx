@@ -28,7 +28,7 @@ function ThemeEngine() {
 
   // - 8px border + 8px shadow keep the control board heavy and explicit.
   return (
-    <section id="theme-engine" className="bg-(--lithos-surface) py-24">
+    <section id="theme-engine" className="bg-(--lithos-surface) py-12 md:py-24">
       <div className="mx-auto max-w-4xl px-6 text-center">
         <h2 className="text-4xl font-black uppercase tracking-tighter leading-none text-(--lithos-text) md:text-5xl">
           Dynamic Theme Engine
