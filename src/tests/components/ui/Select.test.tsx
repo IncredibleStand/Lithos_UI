@@ -2,7 +2,17 @@ import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { axe } from 'jest-axe'
 import { describe, it, expect, vi } from 'vitest'
+import { flip, shift } from '@floating-ui/react'
 import { Select, SelectTrigger, SelectContent, SelectItem } from '../../../components/ui/Select'
+
+vi.mock('@floating-ui/react', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('@floating-ui/react')>()
+  return {
+    ...actual,
+    flip: vi.fn(actual.flip),
+    shift: vi.fn(actual.shift),
+  }
+})
 
 const mockOptions = [
   { label: 'Option 1', value: 'opt-1' },
@@ -110,6 +120,17 @@ describe('Select Component', () => {
     expect(item2).toHaveAttribute('aria-selected', 'true')
     await user.click(item1)
     expect(onChange).toHaveBeenCalledWith('val-1', expect.anything())
+  })
+
+  it('inherits flip and shift middleware from the underlying Popover so the dropdown can reposition near a viewport edge', async () => {
+    const user = userEvent.setup()
+    render(<Select options={mockOptions} />)
+
+    await user.click(screen.getByRole('combobox'))
+    expect(screen.getByRole('listbox')).toBeInTheDocument()
+
+    expect(flip).toHaveBeenCalled()
+    expect(shift).toHaveBeenCalled()
   })
 
   describe('Keyboard Navigation', () => {
