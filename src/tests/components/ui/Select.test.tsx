@@ -165,6 +165,37 @@ describe('Select Component', () => {
       expect(screen.queryByRole('listbox')).not.toBeInTheDocument()
     })
 
+    it('should loop from last to first option when pressing ArrowDown at the end', async () => {
+      const user = userEvent.setup()
+      render(<Select options={mockOptions} />)
+      const trigger = screen.getByRole('combobox')
+
+      await user.click(trigger)
+      const options = screen.getAllByRole('option')
+
+      // opt-3 is disabled, so opt-2 (index 1) is the last enabled option
+      await user.keyboard('{ArrowDown}') // -> index 1 (opt-2)
+      expect(options[1]).toHaveAttribute('data-active', 'true')
+
+      await user.keyboard('{ArrowDown}') // should loop back to index 0 (opt-1)
+      expect(options[0]).toHaveAttribute('data-active', 'true')
+    })
+
+    it('should jump to first/last enabled option with Home/End', async () => {
+      const user = userEvent.setup()
+      render(<Select options={mockOptions} />)
+      const trigger = screen.getByRole('combobox')
+
+      await user.click(trigger)
+      const options = screen.getAllByRole('option')
+
+      await user.keyboard('{End}')
+      expect(options[1]).toHaveAttribute('data-active', 'true') // last enabled = opt-2
+
+      await user.keyboard('{Home}')
+      expect(options[0]).toHaveAttribute('data-active', 'true') // first = opt-1
+    })
+
     it('should close dropdown when pressing Escape key', async () => {
       const user = userEvent.setup()
 
