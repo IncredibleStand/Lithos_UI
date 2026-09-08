@@ -2,6 +2,7 @@ import { axe, toHaveNoViolations } from 'jest-axe'
 import { describe, it, expect, vi } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
+import { flip, shift } from '@floating-ui/react'
 import {
   Popover,
   PopoverTrigger,
@@ -9,6 +10,15 @@ import {
   PopoverClose,
   usePopoverContext,
 } from '../../../components/ui/Popover'
+
+vi.mock('@floating-ui/react', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('@floating-ui/react')>()
+  return {
+    ...actual,
+    flip: vi.fn(actual.flip),
+    shift: vi.fn(actual.shift),
+  }
+})
 
 expect.extend(toHaveNoViolations)
 
@@ -164,6 +174,20 @@ describe('Popover Component', () => {
 
     expect(handleCustomCloseClick).toHaveBeenCalledTimes(1)
     expect(screen.queryByRole('button', { name: 'Custom Close Element' })).not.toBeInTheDocument()
+  })
+
+  it('configures flip and shift middleware so content can reposition near a viewport edge', async () => {
+    render(
+      <Popover initialOpen>
+        <PopoverTrigger>Open Popover</PopoverTrigger>
+        <PopoverContent portaled={false}>Popover Body Content</PopoverContent>
+      </Popover>
+    )
+
+    await screen.findByText('Popover Body Content')
+
+    expect(flip).toHaveBeenCalled()
+    expect(shift).toHaveBeenCalled()
   })
 
   it('throws an error when usePopoverContext is used outside <Popover />', () => {

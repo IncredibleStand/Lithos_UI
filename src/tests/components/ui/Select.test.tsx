@@ -2,7 +2,17 @@ import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { axe } from 'jest-axe'
 import { describe, it, expect, vi } from 'vitest'
+import { flip, shift } from '@floating-ui/react'
 import { Select, SelectTrigger, SelectContent, SelectItem } from '../../../components/ui/Select'
+
+vi.mock('@floating-ui/react', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('@floating-ui/react')>()
+  return {
+    ...actual,
+    flip: vi.fn(actual.flip),
+    shift: vi.fn(actual.shift),
+  }
+})
 
 const mockOptions = [
   { label: 'Option 1', value: 'opt-1' },
@@ -112,6 +122,17 @@ describe('Select Component', () => {
     expect(onChange).toHaveBeenCalledWith('val-1', expect.anything())
   })
 
+  it('inherits flip and shift middleware from the underlying Popover so the dropdown can reposition near a viewport edge', async () => {
+    const user = userEvent.setup()
+    render(<Select options={mockOptions} />)
+
+    await user.click(screen.getByRole('combobox'))
+    expect(screen.getByRole('listbox')).toBeInTheDocument()
+
+    expect(flip).toHaveBeenCalled()
+    expect(shift).toHaveBeenCalled()
+  })
+
   describe('Keyboard Navigation', () => {
     it('should navigate between options using arrow keys', async () => {
       const user = userEvent.setup()
@@ -142,6 +163,37 @@ describe('Select Component', () => {
 
       expect(onChange).toHaveBeenCalledWith('opt-1', expect.anything())
       expect(screen.queryByRole('listbox')).not.toBeInTheDocument()
+    })
+
+    it('should loop from last to first option when pressing ArrowDown at the end', async () => {
+      const user = userEvent.setup()
+      render(<Select options={mockOptions} />)
+      const trigger = screen.getByRole('combobox')
+
+      await user.click(trigger)
+      const options = screen.getAllByRole('option')
+
+      // opt-3 is disabled, so opt-2 (index 1) is the last enabled option
+      await user.keyboard('{ArrowDown}') // -> index 1 (opt-2)
+      expect(options[1]).toHaveAttribute('data-active', 'true')
+
+      await user.keyboard('{ArrowDown}') // should loop back to index 0 (opt-1)
+      expect(options[0]).toHaveAttribute('data-active', 'true')
+    })
+
+    it('should jump to first/last enabled option with Home/End', async () => {
+      const user = userEvent.setup()
+      render(<Select options={mockOptions} />)
+      const trigger = screen.getByRole('combobox')
+
+      await user.click(trigger)
+      const options = screen.getAllByRole('option')
+
+      await user.keyboard('{End}')
+      expect(options[1]).toHaveAttribute('data-active', 'true') // last enabled = opt-2
+
+      await user.keyboard('{Home}')
+      expect(options[0]).toHaveAttribute('data-active', 'true') // first = opt-1
     })
 
     it('should close dropdown when pressing Escape key', async () => {
