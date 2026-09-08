@@ -90,6 +90,13 @@ export const carouselPropsData: PropItem[] = [
     required: false,
     description: 'Custom CSS classes passed to the main carousel wrapper.',
   },
+  {
+    name: 'asChild',
+    type: 'boolean',
+    defaultValue: 'false',
+    required: false,
+    description: 'Renders children without using wrappers, use it when using custom layouts.',
+  },
 ]
 
 export const carouselSlidePropsData: PropItem[] = [
@@ -142,5 +149,146 @@ export const carouselNextPropsData: PropItem[] = [
     type: 'LithosClass',
     required: false,
     description: 'Custom CSS classes passed to the next button element.',
+  },
+]
+
+export const carouselControlsPropsData: PropItem[] = [
+  {
+    name: 'className',
+    type: 'LithosClass',
+    required: false,
+    description: 'Custom CSS classes passed to the controls container.',
+  },
+]
+
+export const carouselPaginationPropsData: PropItem[] = [
+  {
+    name: 'label',
+    type: 'string',
+    defaultValue: '"Move to the slide $"',
+    required: false,
+    description:
+      'Accessible label pattern for slide navigation buttons. The "$" symbol is replaced by the slide number.',
+  },
+  {
+    name: 'className',
+    type: 'LithosClass',
+    required: false,
+    description: 'Custom CSS classes passed to the pagination container.',
+  },
+]
+
+export const carouselTrackPropsData: PropItem[] = [
+  {
+    name: 'children',
+    type: 'ReactNode',
+    required: true,
+    description: 'Slide elements rendered inside the scrollable track.',
+  },
+  {
+    name: 'className',
+    type: 'LithosClass',
+    required: false,
+    description: 'Custom CSS classes passed to the track container.',
+  },
+]
+
+export const useCarouselPropsData: PropItem[] = [
+  {
+    name: 'scroll',
+    type: 'ScrollFunc',
+    description: 'Function to programmatically scroll the carousel.',
+  },
+  {
+    name: 'currentIndex',
+    defaultValue: '0',
+    type: 'number',
+    description: 'Index of the currently active slide.',
+  },
+  {
+    name: 'totalSlides',
+    defaultValue: '0',
+    type: 'number',
+    description: 'Total number of registered slides in the carousel.',
+  },
+  {
+    name: 'mode',
+    type: 'CarouselMode',
+    defaultValue: '"horizontal"',
+    description: 'Indicates the current scrolling mode of the carousel.',
+  },
+  {
+    name: 'containerRef',
+    type: 'RefObject<HTMLDivElement | null>',
+    description: 'React ref attached to the main scrollable container element.',
+  },
+  {
+    name: 'handleScroll',
+    type: '(e: UIEvent<HTMLDivElement>) => void',
+    description: 'Event handler triggered on container scroll to update active state.',
+  },
+  {
+    name: 'dragHandlers',
+    type: "Omit<useCarouselDragReturn, 'isDragging'>",
+    description: 'Pointer and mouse event handlers to manage drag-to-scroll interactions.',
+  },
+  {
+    name: 'registerSlide',
+    type: '(id: string) => () => void',
+    description: 'Registers a slide ID in the context and returns an unregister cleanup function.',
+  },
+  {
+    name: 'slideIds',
+    type: 'string[]',
+    defaultValue: '[]',
+    description: 'Array containing all currently registered slide IDs.',
+  },
+  {
+    name: 'title',
+    type: 'string',
+    defaultValue: '""',
+    description: 'It passes the title that was passed to the Carousel, useful in very nested components',
+  },
+  {
+    name: 'loop',
+    type: 'boolean',
+    defaultValue: 'false',
+    description: 'Indicates whether the carousel loops back to the start when reaching the end.',
+  },
+  {
+    name: 'slideSelector',
+    type: 'SliderSelector',
+    defaultValue: '"dots"',
+    description: 'Indicates the used slider selector ("dots" | "number").',
+  },
+  {
+    name: 'showCounter',
+    type: 'boolean',
+    defaultValue: 'true',
+    description: 'Indicates the visibility of the slide index indicator or counter.',
+  },
+  {
+    name: 'vertical',
+    type: 'boolean',
+    defaultValue: 'false',
+    description: 'Indicates whether the carousel layout and scroll direction are vertical.',
+  },
+  {
+    name: 'bottomControls',
+    type: 'boolean',
+    defaultValue: 'false',
+    description: 'Determines if navigation controls are rendered at the bottom.',
+  },
+  {
+    name: 'isPaused',
+    type: 'boolean',
+    defaultValue: 'false',
+    description: 'Indicates if the autoplay cycle is currently paused.',
+  },
+  {
+    name: 'playInfinite',
+    type: 'boolean',
+    defaultValue: 'false',
+    description: 'Indicates whether autoplay is enabled to continuously transition slides.',
   },
 ]
