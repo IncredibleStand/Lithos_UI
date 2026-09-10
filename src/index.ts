@@ -26,6 +26,10 @@ export * from './components/ui/Select'
 export * from './components/ui/Tabs'
 export * from './components/ui/Toast'
 export * from './components/ui/Toggle'
+export * from './components/ui/tooltip/Tooltip'
+export * from './components/ui/tooltip/TooltipContent'
+export * from './components/ui/tooltip/TooltipTrigger'
+export * from './components/ui/tooltip/useTooltip'
 
 // Hooks
 export * from './core/hooks/useFocusTrap'
