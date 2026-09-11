@@ -10,7 +10,7 @@ export const Footer1 = () => (
         </div>
 
         <div className="flex flex-wrap lg:w-2/3 lg:justify-end">
-          <div className="w-1/2 sm:w-1/3 mb-8 sm:mb-0 lg:ml-12">
+          <div className="w-1/2 sm:w-1/3 lg:w-auto mb-8 sm:mb-0 lg:ml-12">
             <h4 className="font-black uppercase tracking-widest text-sm mb-6 text-(--lithos-text)">Product</h4>
             <ul className="flex flex-col space-y-4 font-bold">
               <li>
@@ -31,7 +31,7 @@ export const Footer1 = () => (
             </ul>
           </div>
 
-          <div className="w-1/2 sm:w-1/3 mb-8 sm:mb-0 lg:ml-12">
+          <div className="w-1/2 sm:w-1/3 lg:w-auto mb-8 sm:mb-0 lg:ml-12">
             <h4 className="font-black uppercase tracking-widest text-sm mb-6 text-(--lithos-text)">Resources</h4>
             <ul className="flex flex-col space-y-4 font-bold">
               <li>
@@ -52,7 +52,7 @@ export const Footer1 = () => (
             </ul>
           </div>
 
-          <div className="w-1/2 sm:w-1/3 lg:ml-12">
+          <div className="w-1/2 sm:w-1/3 lg:w-auto lg:ml-12">
             <h4 className="font-black uppercase tracking-widest text-sm mb-6 text-(--lithos-text)">Company</h4>
             <ul className="flex flex-col space-y-4 font-bold">
               <li>
