@@ -6,6 +6,36 @@ import { SetupGuide } from '../docs/layout/SetupGuide'
 import { Navbar } from '../showroom/sections/Navbar'
 import { Footer } from '../showroom/sections/Footer'
 
+const rewriteBlockImports = (code: string): string => {
+  const importsToCombine: string[] = []
+
+  // Extract all the imported items and remove those lines
+  const codeWithoutLithosImports = code.replace(
+    /^import\s+({[^}]+})\s+from\s+['"](?:\.\.\/)+(?:ui|utils|core)\/[^'"]+['"]/gm,
+    (_match, p1) => {
+      // Extract the named imports like "Badge, Button" from "{ Badge, Button }"
+      const items = p1
+        .replace(/[{}]/g, '')
+        .split(',')
+        .map((s: string) => s.trim())
+        .filter(Boolean)
+      importsToCombine.push(...items)
+      return '' // Remove the original import line
+    }
+  )
+
+  if (importsToCombine.length === 0) return code
+
+  // Deduplicate, sort, and combine into a single clean import
+  const uniqueImports = Array.from(new Set(importsToCombine)).sort()
+  const combinedImport = `import { ${uniqueImports.join(', ')} } from 'lithos-ui'`
+
+  // Clean up any double blank lines left by removing the original imports
+  const cleanCode = codeWithoutLithosImports.replace(/^\s*[\r\n]{2,}/gm, '\n')
+
+  return `${combinedImport}\n\n${cleanCode.trimStart()}`
+}
+
 interface BlockCategoryPageProps {
   isDarkMode: boolean
   toggleObsidian: () => void
@@ -58,7 +88,7 @@ export const BlockCategoryPage = ({ isDarkMode, toggleObsidian }: BlockCategoryP
                   </h3>
                   <p className="font-body text-lg text-(--lithos-text) opacity-80 mb-8">{variant.name}</p>
                   <PreviewBlock
-                    code={variant.code}
+                    code={rewriteBlockImports(variant.code)}
                     githubUrl={variant.githubUrl}
                     slug={variant.slug}
                     height="600px"

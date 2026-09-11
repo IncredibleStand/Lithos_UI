@@ -25,6 +25,7 @@ const createMockContext = (overrides?: Partial<CarouselContextValue>): CarouselC
   vertical: false,
   bottomControls: false,
   registerSlide: vi.fn(() => vi.fn()),
+  slideIds: [],
   ...overrides,
 })
 
