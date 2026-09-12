@@ -3,7 +3,7 @@ import { Button } from '../../ui/Button'
 import { IconMenu } from '../../ui/icons/IconMenu'
 import { IconClose } from '../../ui/icons/IconClose'
 
-const links = [
+const defaultLinks = [
   { label: 'Products', to: '#' },
   { label: 'Features', to: '#' },
   { label: 'Pricing', to: '#' },
@@ -11,7 +11,11 @@ const links = [
   { label: 'Company', to: '#' },
 ]
 
-export const Navbar1 = () => {
+export interface Navbar1Props {
+  links?: { label: string; to: string }[]
+}
+
+export const Navbar1 = ({ links = defaultLinks }: Navbar1Props = {}) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const ActionToggle = isMenuOpen ? IconClose : IconMenu

@@ -33,6 +33,7 @@ export interface PreviewBlockProps {
   height?: string
   noPadding?: boolean
   slug?: string
+  previewBaseUrl?: string
   installGuide?: ReactNode
   children: ReactNode
 }
@@ -50,6 +51,7 @@ export const PreviewBlock = ({
   height,
   noPadding,
   slug,
+  previewBaseUrl = '/blocks/preview',
   installGuide,
 }: PreviewBlockProps) => {
   const [activeTab, setActiveTab] = useState<AvailableTabs>('preview')
@@ -122,7 +124,7 @@ export const PreviewBlock = ({
           {slug && (
             <Button
               variant="secondary"
-              onClick={() => window.open(`/blocks/preview/${slug}`, '_blank')}
+              onClick={() => window.open(`${previewBaseUrl}/${slug}`, '_blank')}
               aria-label="Open"
               className="inline-flex items-center justify-center hover:bg-(--lithos-accent) hover:text-(--lithos-accent-text)"
             >
@@ -153,7 +155,7 @@ export const PreviewBlock = ({
           slug ? (
             <div className={cn('flex items-center justify-center w-full h-full', !noPadding && 'p-4 md:p-6')}>
               <div style={{ width: getIframeWidth() }} className="h-full transition-all duration-300">
-                <iframe src={`/blocks/preview/${slug}`} className="w-full h-full border-0" title="Block preview" />
+                <iframe src={`${previewBaseUrl}/${slug}`} className="w-full h-full border-0" title="Block preview" />
               </div>
             </div>
           ) : (

@@ -16,6 +16,9 @@ import { BreadcrumbDoc } from './docs/pages/Breadcrumb'
 import { BlockPreviewPage } from './pages/BlockPreviewPage'
 import { BlockCategoryPage } from './pages/BlockCategoryPage'
 import { BlocksIndex } from './pages/BlocksIndex'
+import { TemplatesIndex } from './pages/TemplatesIndex'
+import { TemplateCategoryPage } from './pages/TemplateCategoryPage'
+import { TemplatePreviewPage } from './pages/TemplatePreviewPage'
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom'
 import { ButtonDoc } from './docs/pages/Button'
 import { CalendarDoc } from './docs/pages/Calendar'
@@ -157,14 +160,12 @@ const App = () => {
           <Route path="/faq" element={<Faq isDarkMode={isDarkMode} toggleObsidian={toggleObsidian} />} />
           <Route
             path="/templates"
-            element={
-              <ComingSoon
-                eyebrow="Coming Soon"
-                title="TEMPLATES"
-                description="Full page scaffolds built entirely from the Blocks library. Ships once Blocks is live."
-                primaryAction={{ label: 'Go to Docs', to: '/docs' }}
-              />
-            }
+            element={<TemplatesIndex isDarkMode={isDarkMode} toggleObsidian={toggleObsidian} />}
+          />
+          <Route path="/templates/preview/:slug" element={<TemplatePreviewPage />} />
+          <Route
+            path="/templates/:categorySlug"
+            element={<TemplateCategoryPage isDarkMode={isDarkMode} toggleObsidian={toggleObsidian} />}
           />
 
           {/* Structural Failure Catch-all */}

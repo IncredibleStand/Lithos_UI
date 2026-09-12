@@ -65,7 +65,7 @@ const plans: PricingPlan[] = [
 
 export const Pricing1 = () => {
   return (
-    <section className="bg-(--lithos-surface) py-12 md:py-24">
+    <section id="pricing" className="bg-(--lithos-surface) py-12 md:py-24">
       <div className="mx-auto max-w-7xl px-6">
         <h2 className="text-4xl font-black uppercase tracking-tighter leading-none text-center text-(--lithos-text) md:text-5xl">
           Simple, Transparent Pricing
