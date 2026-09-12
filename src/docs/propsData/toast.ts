@@ -21,6 +21,12 @@ export const toastProviderPropsData: PropItem[] = [
     required: false,
     description: 'Corner position on the viewport where toasts will stack.',
   },
+  {
+    name: 'className',
+    type: 'string',
+    required: false,
+    description: 'Additional CSS classes to apply to the stack container.',
+  },
 ]
 
 export const toastPropsData: PropItem[] = [
@@ -38,7 +44,7 @@ export const toastPropsData: PropItem[] = [
   },
   {
     name: 'intent',
-    type: '"default" | "success" | "error" | "warning" | "info"',
+    type: '"default" | "success" | "error" | "warning" | "info" | "accent"',
     defaultValue: '"default"',
     required: false,
     description: 'Defines the structural intent and default styling variant.',

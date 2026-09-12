@@ -28,6 +28,18 @@ export const popoverPropsData = [
     type: '(open: boolean) => void',
     description: 'Event handler called when the open state changes.',
   },
+  {
+    name: 'interactions',
+    type: 'ElementProps[]',
+    required: false,
+    description: 'Custom floating-ui interactions to apply to the popover.',
+  },
+  {
+    name: 'offset',
+    type: 'number',
+    required: false,
+    description: 'Distance in pixels between the popover and the trigger element.',
+  },
 ]
 
 export const popoverTriggerPropsData = [
@@ -46,6 +58,13 @@ export const popoverTriggerPropsData = [
 
 export const popoverContentPropsData = [
   {
+    name: 'portaled',
+    type: 'boolean',
+    defaultValue: 'true',
+    required: false,
+    description: 'Whether to render the content in a React Portal.',
+  },
+  {
     name: 'className',
     type: 'LithosClass',
     description: 'Additional CSS classes to apply to the content container.',
@@ -53,6 +72,13 @@ export const popoverContentPropsData = [
 ]
 
 export const popoverClosePropsData = [
+  {
+    name: 'asChild',
+    type: 'boolean',
+    defaultValue: 'false',
+    required: false,
+    description: 'If true, merges its props and refs onto its child element instead of rendering a wrapper <button>.',
+  },
   {
     name: 'onClick',
     type: 'function',

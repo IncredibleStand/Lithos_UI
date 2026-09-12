@@ -3,7 +3,7 @@ import type { PropItem } from '../../components/ui/PropsTable'
 export const buttonPropsData: PropItem[] = [
   {
     name: 'variant',
-    type: "'primary' | 'secondary' | 'accent' | 'text' | 'solid'",
+    type: "'primary' | 'secondary' | 'accent' | 'text' | 'solid' | 'inverse'",
     defaultValue: "'primary'",
     required: false,
     description: 'Visual emphasis variant.',

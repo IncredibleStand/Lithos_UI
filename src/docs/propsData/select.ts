@@ -79,6 +79,12 @@ export const selectTriggerProps: PropItem[] = [
     required: false,
     description: 'Accessible text label for the trigger element.',
   },
+  {
+    name: 'placeholder',
+    type: 'string',
+    required: false,
+    description: 'Fallback text displayed when no selection is present.',
+  },
 ]
 
 export const selectContentProps: PropItem[] = [

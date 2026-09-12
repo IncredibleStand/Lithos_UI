@@ -39,6 +39,11 @@ export const tooltipTriggerPropsData = [
     default: 'false',
     description: 'If true, merges its props and refs onto its child element instead of rendering a wrapper <button>.',
   },
+  {
+    name: 'className',
+    type: 'LithosClass',
+    description: 'Additional CSS classes to apply to the trigger.',
+  },
 ]
 
 export const tooltipContentPropsData = [
