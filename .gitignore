@@ -25,3 +25,6 @@ dist-ssr
 
 coverage
 *.tgz
+
+# TypeScript cache
+*.tsbuildinfo
