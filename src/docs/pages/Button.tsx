@@ -51,6 +51,14 @@ const textCode = {
   manualPath,
 }
 
+const inverseCode = {
+  body: `export const InverseButton = () => {
+    return <Button variant="inverse">Inverse</Button>
+  }`,
+  componentNames: ['Button'],
+  manualPath,
+}
+
 const withIconCode = {
   body: `export const WithIconButtons = () => {
     return (
@@ -150,8 +158,9 @@ export const ButtonDoc = () => {
           <strong>Default</strong> is the primary call to action and requires no <code>intent</code> prop.{' '}
           <strong>Secondary</strong> is a secondary call-to-action with an outlined style. <strong>Accent</strong> is a
           secondary button that fills solid with the accent color on hover. <strong>Solid</strong> allows a custom
-          background color with an automatically adapting contrast text. <strong>Text</strong> is a text-only button
-          variant with no border or background, typically used for secondary or low-emphasis actions.
+          background color with an automatically adapting contrast text. <strong>Inverse</strong> inverts the button
+          colors to adapt to dark backgrounds. <strong>Text</strong> is a text-only button variant with no border or
+          background, typically used for secondary or low-emphasis actions.
         </p>
       </div>
 
@@ -246,6 +255,20 @@ export const ButtonDoc = () => {
 
       <PreviewBlock code={textCode} githubUrl={githubUrl}>
         <Button variant="text">Text</Button>
+      </PreviewBlock>
+
+      <h4 id="inverse" className="mb-3 text-lg font-black tracking-tight text-(--lithos-text)">
+        Inverse
+      </h4>
+      <p className="text-base text-(--lithos-text) max-w-3xl font-body mb-4 opacity-80">
+        Use this variant when placing a button on a dark or inverted background. It explicitly sets the button
+        background to match the global text color, ensuring high visibility regardless of the current theme mode.
+      </p>
+
+      <PreviewBlock code={inverseCode} githubUrl={githubUrl}>
+        <div className="p-4 bg-(--lithos-text) rounded-(--lithos-radius) inline-block">
+          <Button variant="inverse">Inverse</Button>
+        </div>
       </PreviewBlock>
 
       <h4 id="with-icon" className="mb-3 text-lg font-black tracking-tight text-(--lithos-text)">

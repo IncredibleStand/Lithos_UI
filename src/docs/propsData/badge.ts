@@ -22,7 +22,7 @@ export const badgePropsData: PropItem[] = [
     description: 'Defines the overall scale and padding of the badge.',
   },
   {
-    name: 'variant',
+    name: 'intent',
     type: '"default" | "accent" | "success" | "error" | "warning" | "info"',
     defaultValue: '"default"',
     required: false,
