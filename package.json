@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/lithosui/Lithos_UI#readme",
   "private": false,
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "David Akinloye",
   "type": "module",
   "main": "./dist/index.cjs",
