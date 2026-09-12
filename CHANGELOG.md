@@ -4,15 +4,21 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
-## [Unreleased]
+## [0.1.1]
 
-### Added (Unreleased)
+### Added (0.1.1)
 
-### Changed (Unreleased)
+- Tooltip component.
 
-### Fixed (Unreleased)
+### Changed (0.1.1)
 
-### Removed (Unreleased)
+- Comprehensive manual audit and synchronization of component `propsData` documentation with source typings.
+
+### Fixed (0.1.1)
+
+- Fixes for v0.1.0 for the components were made.
+
+### Removed (0.1.1)
 
 ## [0.0.0]
 
