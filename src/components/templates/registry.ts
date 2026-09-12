@@ -4,7 +4,7 @@ import landing1Code from './Landing/1.tsx?raw'
 export interface TemplateVariant {
   slug: string
   name: string
-  component: React.ComponentType<any>
+  component: React.ComponentType
   code: string
   githubUrl: string
 }
